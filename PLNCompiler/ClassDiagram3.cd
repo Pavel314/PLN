@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PLN.Syntax.SyntaxTree.ExpressionNode" Collapsed="true">
+    <Position X="35" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\ExpressionNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.ConstNodeBase&lt;TConstant&gt;" Collapsed="true">
+    <Position X="29.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\ExpressionNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.ConstNode" Collapsed="true">
+    <Position X="28.25" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\ExpressionNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.ParsableConstNode" Collapsed="true">
+    <Position X="30.5" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\ExpressionNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.UnaryNode" Collapsed="true">
+    <Position X="27.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAGAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\ExpressionNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.NewUnaryNode" Collapsed="true">
+    <Position X="29.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAARAAAAAAAAAAAAAABAAIQEAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\ExpressionNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.BinaryNode" Collapsed="true">
+    <Position X="26" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAACACAAACAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\ExpressionNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.MemberAccessNode" Collapsed="true">
+    <Position X="32.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAQAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\ExpressionNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.CastNode" Collapsed="true">
+    <Position X="34.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAQAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\ExpressionNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.ExplicitCastNode" Collapsed="true">
+    <Position X="32.25" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\ExpressionNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.AsCastNode" Collapsed="true">
+    <Position X="34.5" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\ExpressionNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.IsCastNode" Collapsed="true">
+    <Position X="36.75" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\ExpressionNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.StatementNode" Collapsed="true">
+    <Position X="41" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.BlockNode" Collapsed="true">
+    <Position X="28" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.MethodNode" Collapsed="true">
+    <Position X="42" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAARAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.TypeOfNode" Collapsed="true">
+    <Position X="44.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAQAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.FieldNode" Collapsed="true">
+    <Position X="46.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAQAAAAAAIAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.MemberNode" Collapsed="true">
+    <Position X="44.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAiAABAAIAAAAAAAAQAAAAAAAAAAAUAABAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.AssignNode" Collapsed="true">
+    <Position X="40.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAEQAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.VarNodeBase" Collapsed="true">
+    <Position X="38.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.VarDefineNode" Collapsed="true">
+    <Position X="34.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAgAAQAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.VarDefineAssignNodeBase" Collapsed="true">
+    <Position X="34.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.VarDefineAssignNode" Collapsed="true">
+    <Position X="33.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.VarDefineAssignAutoNode" Collapsed="true">
+    <Position X="35" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.IfElseNode" Collapsed="true">
+    <Position X="44" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAEAAAAAAAAAAAAIAQAAAAAAAEAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.LoopNodeBase" Collapsed="true">
+    <Position X="46" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.WhileLoopNode" Collapsed="true">
+    <Position X="44.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.DoWhileLoopNode" Collapsed="true">
+    <Position X="47" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.LoopSpecialStatementNode" Collapsed="true">
+    <Position X="38" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAABAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.BreakNode" Collapsed="true">
+    <Position X="37.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.ContinueNode" Collapsed="true">
+    <Position X="39.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.LabelDefineNode" Collapsed="true">
+    <Position X="38" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAQCAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.GOTOLabelNode" Collapsed="true">
+    <Position X="37.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.CommentNode" Collapsed="true">
+    <Position X="33.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.OneLineCommentNode" Collapsed="true">
+    <Position X="32.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.FactArgumentNode" Collapsed="true">
+    <Position X="40" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.ExpressionArgumentNode" Collapsed="true">
+    <Position X="38.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.RefArgumentNode" Collapsed="true">
+    <Position X="41" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.SyntaxNode" Collapsed="true">
+    <Position X="37.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\SyntaxNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.TypeNode" Collapsed="true">
+    <Position X="44.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\TypeNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.ArrayTypeNode" Collapsed="true">
+    <Position X="38.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAQAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\TypeNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.TypeNameNode" Collapsed="true">
+    <Position X="41" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAIQEAAAAAAAAAAEAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\TypeNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.ImportsNode" Collapsed="true">
+    <Position X="43.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\TypeNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.ImportNode" Collapsed="true">
+    <Position X="45.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\TypeNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.UsingsNode" Collapsed="true">
+    <Position X="47" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\TypeNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PLN.Syntax.SyntaxTree.UsingNode" Collapsed="true">
+    <Position X="47.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\TypeNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="PLN.Syntax.SyntaxTree.NewUnaryKind" Collapsed="true">
+    <Position X="43" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\ExpressionNodes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PLN.Syntax.SyntaxTree.MemberKind" Collapsed="true">
+    <Position X="41.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAiAA=</HashCode>
+      <FileName>Syntax\SyntaxTree\StatementNodes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

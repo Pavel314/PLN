@@ -1,0 +1,1540 @@
+<html><head><title>PLNParser.y</title></head>
+<body bgcolor="white">
+<hr><pre>
+<b>Grammar PLNParser.y</b>
+
+<a name="prod1">    1</a> $accept: program EOF
+
+<a name="prod2">    2</a> program: importSection usingSection block
+
+<a name="prod3">    3</a> importSection: imports
+<a name="prod4">    4</a>              | empty
+
+<a name="prod5">    5</a> imports: import
+<a name="prod6">    6</a>        | imports import
+
+<a name="prod7">    7</a> import: IMPORT STRING2
+
+<a name="prod8">    8</a> usingSection: usings
+<a name="prod9">    9</a>             | empty
+
+<a name="prod10">   10</a> usings: using
+<a name="prod11">   11</a>       | usings using
+
+<a name="prod12">   12</a> using: USING manyUsing SEMICOLON
+
+<a name="prod13">   13</a> manyUsing: usingSing
+<a name="prod14">   14</a>          | manyUsing COLON usingSing
+
+<a name="prod15">   15</a> usingSing: namespace
+
+<a name="prod16">   16</a> namespace: identifer
+<a name="prod17">   17</a>          | namespace DOT identifer
+
+<a name="prod18">   18</a> block: BEGIN statements END
+
+<a name="prod19">   19</a> statements: statement
+<a name="prod20">   20</a>           | statements SEMICOLON statement
+<a name="prod21">   21</a>           | statements block statement
+
+<a name="prod22">   22</a> statement: varsDefine
+<a name="prod23">   23</a>          | varAssign
+<a name="prod24">   24</a>          | c
+<a name="prod25">   25</a>          | empty
+
+<a name="prod26">   26</a> varsDefine: type vars
+
+<a name="prod27">   27</a> vars: identifer
+<a name="prod28">   28</a>     | vars DOT identifer
+
+<a name="prod29">   29</a> varAssign: genericType ASSIGN factor
+
+<a name="prod30">   30</a> factor: constant
+<a name="prod31">   31</a>       | memberAcces
+
+<a name="prod32">   32</a> memberAcces: memberVariant
+<a name="prod33">   33</a>            | memberVariant DOT memberAcces
+
+<a name="prod34">   34</a> memberVariant: memberSingle
+<a name="prod35">   35</a>              | procedure
+
+<a name="prod36">   36</a> memberSingle: identifer
+<a name="prod37">   37</a>             | identifer LESS genericArgs GREATE
+
+<a name="prod38">   38</a> a: identifer
+<a name="prod39">   39</a>  | identifer LESS genericArgs GREATE
+
+<a name="prod40">   40</a> proc: type LPAREN methodArguments RPAREN
+
+<a name="prod41">   41</a> mem: type
+<a name="prod42">   42</a>    | type LPAREN methodArguments RPAREN
+
+<a name="prod43">   43</a> c: mem
+<a name="prod44">   44</a>  | type DOT LPAREN methodArguments RPAREN
+
+<a name="prod45">   45</a> procedure: memberSingle LPAREN methodArguments RPAREN
+<a name="prod46">   46</a>          | memberSingle LPAREN RPAREN
+
+<a name="prod47">   47</a> methodArguments: factor
+
+<a name="prod48">   48</a> constant: INTNUM
+<a name="prod49">   49</a>         | FLOATNUM
+<a name="prod50">   50</a>         | STRING2
+<a name="prod51">   51</a>         | STRING1
+<a name="prod52">   52</a>         | TRUE
+<a name="prod53">   53</a>         | FALSE
+<a name="prod54">   54</a>         | NULL
+
+<a name="prod55">   55</a> type: genericType
+<a name="prod56">   56</a>     | ARRAY type
+<a name="prod57">   57</a>     | ARRAY SLPAREN SRPAREN type
+<a name="prod58">   58</a>     | ARRAY SLPAREN dimension SRPAREN type
+
+<a name="prod59">   59</a> dimension: COLON
+<a name="prod60">   60</a>          | dimension COLON
+
+<a name="prod61">   61</a> genericType: genericTypeSing
+<a name="prod62">   62</a>            | genericTypeSing DOT genericType
+
+<a name="prod63">   63</a> genericArgs: type
+<a name="prod64">   64</a>            | genericArgs COLON type
+
+<a name="prod65">   65</a> genericTypeSing: identifer LESS genericArgs GREATE
+<a name="prod66">   66</a>                | identifer
+
+<a name="prod67">   67</a> identifer: ID
+
+<a name="prod68">   68</a> empty: /* empty */
+
+<b><a name="state0">State</a> <a href="#state0">0</font></a></b>
+  <b>Kernel Items</b>
+    1 $accept: . program EOF
+
+  <b>Parser Actions</b>
+    IMPORT         shift, and go to state <a href="#state95">95</font></a>
+    USING          reduce using <a href="#prod68">rule 68</font></a> (Erasing empty)
+    BEGIN          reduce using <a href="#prod68">rule 68</font></a> (Erasing empty)
+
+  <b>Transitions</b>
+    program        go to state <a href="#state1">1</font></a>
+    importSection  go to state <a href="#state3">3</font></a>
+    imports        go to state <a href="#state93">93</font></a>
+    import         go to state <a href="#state97">97</font></a>
+    empty          go to state <a href="#state98">98</font></a>
+
+
+<b><a name="state1">State</a> <a href="#state1">1</font></a></b>
+  <b>Kernel Items</b>
+    1 $accept: program . EOF
+
+  <b>Parser Actions</b>
+    EOF            shift, and go to state <a href="#state2">2</font></a>
+
+
+
+<b><a name="state2">State</a> <a href="#state2">2</font></a></b>
+  <b>Kernel Items</b>
+    1 $accept: program EOF .
+	-lookahead: {  }
+
+  <b>Parser Actions</b>
+    error          reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    EOF            reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    ADD            reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    SUB            reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    DEVIDE         reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    MUL            reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    LPAREN         reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    RPAREN         reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    SEMICOLON      reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    BEGIN          reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    END            reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    COLON          reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    DOT            reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    ASSIGN         reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    PROCEDURE      reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    FUNCTION       reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    ARRAY          reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    LOOP           reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    BREAK          reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    CONTINUE       reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    RETURNN        reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    STEP           reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    IF             reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    AND            reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    OR             reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    TRUE           reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    FALSE          reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    NULL           reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    AUTO           reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    GREATE         reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    LESS           reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    SLPAREN        reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    SRPAREN        reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    IMPORT         reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    USING          reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    INTNUM         reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    FLOATNUM       reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    ID             reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    STRING2        reduce using <a href="#prod1">rule 1</font></a> ($accept)
+    STRING1        reduce using <a href="#prod1">rule 1</font></a> ($accept)
+
+
+
+<b><a name="state3">State</a> <a href="#state3">3</font></a></b>
+  <b>Kernel Items</b>
+    2 program: importSection . usingSection block
+
+  <b>Parser Actions</b>
+    USING          shift, and go to state <a href="#state81">81</font></a>
+    BEGIN          reduce using <a href="#prod68">rule 68</font></a> (Erasing empty)
+
+  <b>Transitions</b>
+    usingSection   go to state <a href="#state4">4</font></a>
+    usings         go to state <a href="#state79">79</font></a>
+    using          go to state <a href="#state91">91</font></a>
+    empty          go to state <a href="#state92">92</font></a>
+
+
+<b><a name="state4">State</a> <a href="#state4">4</font></a></b>
+  <b>Kernel Items</b>
+    2 program: importSection usingSection . block
+
+  <b>Parser Actions</b>
+    BEGIN          shift, and go to state <a href="#state6">6</font></a>
+
+  <b>Transitions</b>
+    block          go to state <a href="#state5">5</font></a>
+
+
+<b><a name="state5">State</a> <a href="#state5">5</font></a></b>
+  <b>Kernel Items</b>
+    2 program: importSection usingSection block .
+	-lookahead: { EOF }
+
+  <b>Parser Actions</b>
+    EOF            reduce using <a href="#prod2">rule 2</font></a> (program)
+
+
+
+<b><a name="state6">State</a> <a href="#state6">6</font></a></b>
+  <b>Kernel Items</b>
+    18 block: BEGIN . statements END
+
+  <b>Parser Actions</b>
+    ID             shift, and go to state <a href="#state16">16</font></a>
+    ARRAY          shift, and go to state <a href="#state53">53</font></a>
+    END            reduce using <a href="#prod68">rule 68</font></a> (Erasing empty)
+    SEMICOLON      reduce using <a href="#prod68">rule 68</font></a> (Erasing empty)
+    BEGIN          reduce using <a href="#prod68">rule 68</font></a> (Erasing empty)
+
+  <b>Transitions</b>
+    statements     go to state <a href="#state7">7</font></a>
+    statement      go to state <a href="#state78">78</font></a>
+    varsDefine     go to state <a href="#state11">11</font></a>
+    type           go to state <a href="#state12">12</font></a>
+    genericType    go to state <a href="#state69">69</font></a>
+    genericTypeSing go to state <a href="#state45">45</font></a>
+    identifer      go to state <a href="#state48">48</font></a>
+    varAssign      go to state <a href="#state72">72</font></a>
+    c              go to state <a href="#state73">73</font></a>
+    mem            go to state <a href="#state74">74</font></a>
+    empty          go to state <a href="#state75">75</font></a>
+
+
+<b><a name="state7">State</a> <a href="#state7">7</font></a></b>
+  <b>Kernel Items</b>
+    18 block: BEGIN statements . END
+    20 statements: statements . SEMICOLON statement
+    21 statements: statements . block statement
+
+  <b>Parser Actions</b>
+    END            shift, and go to state <a href="#state8">8</font></a>
+    SEMICOLON      shift, and go to state <a href="#state9">9</font></a>
+    BEGIN          shift, and go to state <a href="#state6">6</font></a>
+
+  <b>Transitions</b>
+    block          go to state <a href="#state76">76</font></a>
+
+
+<b><a name="state8">State</a> <a href="#state8">8</font></a></b>
+  <b>Kernel Items</b>
+    18 block: BEGIN statements END .
+	-lookahead: { EOF, ID, ARRAY, END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    EOF            reduce using <a href="#prod18">rule 18</font></a> (block)
+    ID             reduce using <a href="#prod18">rule 18</font></a> (block)
+    ARRAY          reduce using <a href="#prod18">rule 18</font></a> (block)
+    END            reduce using <a href="#prod18">rule 18</font></a> (block)
+    SEMICOLON      reduce using <a href="#prod18">rule 18</font></a> (block)
+    BEGIN          reduce using <a href="#prod18">rule 18</font></a> (block)
+
+
+
+<b><a name="state9">State</a> <a href="#state9">9</font></a></b>
+  <b>Kernel Items</b>
+    20 statements: statements SEMICOLON . statement
+
+  <b>Parser Actions</b>
+    ID             shift, and go to state <a href="#state16">16</font></a>
+    ARRAY          shift, and go to state <a href="#state53">53</font></a>
+    END            reduce using <a href="#prod68">rule 68</font></a> (Erasing empty)
+    SEMICOLON      reduce using <a href="#prod68">rule 68</font></a> (Erasing empty)
+    BEGIN          reduce using <a href="#prod68">rule 68</font></a> (Erasing empty)
+
+  <b>Transitions</b>
+    statement      go to state <a href="#state10">10</font></a>
+    varsDefine     go to state <a href="#state11">11</font></a>
+    type           go to state <a href="#state12">12</font></a>
+    genericType    go to state <a href="#state69">69</font></a>
+    genericTypeSing go to state <a href="#state45">45</font></a>
+    identifer      go to state <a href="#state48">48</font></a>
+    varAssign      go to state <a href="#state72">72</font></a>
+    c              go to state <a href="#state73">73</font></a>
+    mem            go to state <a href="#state74">74</font></a>
+    empty          go to state <a href="#state75">75</font></a>
+
+
+<b><a name="state10">State</a> <a href="#state10">10</font></a></b>
+  <b>Kernel Items</b>
+    20 statements: statements SEMICOLON statement .
+	-lookahead: { END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    END            reduce using <a href="#prod20">rule 20</font></a> (statements)
+    SEMICOLON      reduce using <a href="#prod20">rule 20</font></a> (statements)
+    BEGIN          reduce using <a href="#prod20">rule 20</font></a> (statements)
+
+
+
+<b><a name="state11">State</a> <a href="#state11">11</font></a></b>
+  <b>Kernel Items</b>
+    22 statement: varsDefine .
+	-lookahead: { END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    END            reduce using <a href="#prod22">rule 22</font></a> (statement)
+    SEMICOLON      reduce using <a href="#prod22">rule 22</font></a> (statement)
+    BEGIN          reduce using <a href="#prod22">rule 22</font></a> (statement)
+
+
+
+<b><a name="state12">State</a> <a href="#state12">12</font></a></b>
+  <b>Kernel Items</b>
+    26 varsDefine: type . vars
+    41 mem: type .
+	-lookahead: { END, SEMICOLON, BEGIN }
+    42 mem: type . LPAREN methodArguments RPAREN
+    44 c: type . DOT LPAREN methodArguments RPAREN
+
+  <b>Parser Actions</b>
+    LPAREN         shift, and go to state <a href="#state17">17</font></a>
+    DOT            shift, and go to state <a href="#state64">64</font></a>
+    ID             shift, and go to state <a href="#state16">16</font></a>
+    END            reduce using <a href="#prod41">rule 41</font></a> (mem)
+    SEMICOLON      reduce using <a href="#prod41">rule 41</font></a> (mem)
+    BEGIN          reduce using <a href="#prod41">rule 41</font></a> (mem)
+
+  <b>Transitions</b>
+    vars           go to state <a href="#state13">13</font></a>
+    identifer      go to state <a href="#state68">68</font></a>
+
+
+<b><a name="state13">State</a> <a href="#state13">13</font></a></b>
+  <b>Kernel Items</b>
+    26 varsDefine: type vars .
+	-lookahead: { END, SEMICOLON, BEGIN }
+    28 vars: vars . DOT identifer
+
+  <b>Parser Actions</b>
+    DOT            shift, and go to state <a href="#state14">14</font></a>
+    END            reduce using <a href="#prod26">rule 26</font></a> (varsDefine)
+    SEMICOLON      reduce using <a href="#prod26">rule 26</font></a> (varsDefine)
+    BEGIN          reduce using <a href="#prod26">rule 26</font></a> (varsDefine)
+
+
+
+<b><a name="state14">State</a> <a href="#state14">14</font></a></b>
+  <b>Kernel Items</b>
+    28 vars: vars DOT . identifer
+
+  <b>Parser Actions</b>
+    ID             shift, and go to state <a href="#state16">16</font></a>
+
+  <b>Transitions</b>
+    identifer      go to state <a href="#state15">15</font></a>
+
+
+<b><a name="state15">State</a> <a href="#state15">15</font></a></b>
+  <b>Kernel Items</b>
+    28 vars: vars DOT identifer .
+	-lookahead: { DOT, END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    DOT            reduce using <a href="#prod28">rule 28</font></a> (vars)
+    END            reduce using <a href="#prod28">rule 28</font></a> (vars)
+    SEMICOLON      reduce using <a href="#prod28">rule 28</font></a> (vars)
+    BEGIN          reduce using <a href="#prod28">rule 28</font></a> (vars)
+
+
+
+<b><a name="state16">State</a> <a href="#state16">16</font></a></b>
+  <b>Kernel Items</b>
+    67 identifer: ID .
+	-lookahead: { LESS, DOT, ASSIGN, LPAREN, ID, END, SEMICOLON, BEGIN, RPAREN, 
+                GREATE, COLON }
+
+  <b>Parser Actions</b>
+    LESS           reduce using <a href="#prod67">rule 67</font></a> (identifer)
+    DOT            reduce using <a href="#prod67">rule 67</font></a> (identifer)
+    ASSIGN         reduce using <a href="#prod67">rule 67</font></a> (identifer)
+    LPAREN         reduce using <a href="#prod67">rule 67</font></a> (identifer)
+    ID             reduce using <a href="#prod67">rule 67</font></a> (identifer)
+    END            reduce using <a href="#prod67">rule 67</font></a> (identifer)
+    SEMICOLON      reduce using <a href="#prod67">rule 67</font></a> (identifer)
+    BEGIN          reduce using <a href="#prod67">rule 67</font></a> (identifer)
+    RPAREN         reduce using <a href="#prod67">rule 67</font></a> (identifer)
+    GREATE         reduce using <a href="#prod67">rule 67</font></a> (identifer)
+    COLON          reduce using <a href="#prod67">rule 67</font></a> (identifer)
+
+
+
+<b><a name="state17">State</a> <a href="#state17">17</font></a></b>
+  <b>Kernel Items</b>
+    42 mem: type LPAREN . methodArguments RPAREN
+
+  <b>Parser Actions</b>
+    INTNUM         shift, and go to state <a href="#state22">22</font></a>
+    FLOATNUM       shift, and go to state <a href="#state23">23</font></a>
+    STRING2        shift, and go to state <a href="#state24">24</font></a>
+    STRING1        shift, and go to state <a href="#state25">25</font></a>
+    TRUE           shift, and go to state <a href="#state26">26</font></a>
+    FALSE          shift, and go to state <a href="#state27">27</font></a>
+    NULL           shift, and go to state <a href="#state28">28</font></a>
+    ID             shift, and go to state <a href="#state16">16</font></a>
+
+  <b>Transitions</b>
+    methodArguments go to state <a href="#state18">18</font></a>
+    factor         go to state <a href="#state20">20</font></a>
+    constant       go to state <a href="#state21">21</font></a>
+    memberAcces    go to state <a href="#state29">29</font></a>
+    memberVariant  go to state <a href="#state30">30</font></a>
+    memberSingle   go to state <a href="#state33">33</font></a>
+    identifer      go to state <a href="#state38">38</font></a>
+    procedure      go to state <a href="#state63">63</font></a>
+
+
+<b><a name="state18">State</a> <a href="#state18">18</font></a></b>
+  <b>Kernel Items</b>
+    42 mem: type LPAREN methodArguments . RPAREN
+
+  <b>Parser Actions</b>
+    RPAREN         shift, and go to state <a href="#state19">19</font></a>
+
+
+
+<b><a name="state19">State</a> <a href="#state19">19</font></a></b>
+  <b>Kernel Items</b>
+    42 mem: type LPAREN methodArguments RPAREN .
+	-lookahead: { END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    END            reduce using <a href="#prod42">rule 42</font></a> (mem)
+    SEMICOLON      reduce using <a href="#prod42">rule 42</font></a> (mem)
+    BEGIN          reduce using <a href="#prod42">rule 42</font></a> (mem)
+
+
+
+<b><a name="state20">State</a> <a href="#state20">20</font></a></b>
+  <b>Kernel Items</b>
+    47 methodArguments: factor .
+	-lookahead: { RPAREN }
+
+  <b>Parser Actions</b>
+    RPAREN         reduce using <a href="#prod47">rule 47</font></a> (methodArguments)
+
+
+
+<b><a name="state21">State</a> <a href="#state21">21</font></a></b>
+  <b>Kernel Items</b>
+    30 factor: constant .
+	-lookahead: { RPAREN, END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    RPAREN         reduce using <a href="#prod30">rule 30</font></a> (factor)
+    END            reduce using <a href="#prod30">rule 30</font></a> (factor)
+    SEMICOLON      reduce using <a href="#prod30">rule 30</font></a> (factor)
+    BEGIN          reduce using <a href="#prod30">rule 30</font></a> (factor)
+
+
+
+<b><a name="state22">State</a> <a href="#state22">22</font></a></b>
+  <b>Kernel Items</b>
+    48 constant: INTNUM .
+	-lookahead: { RPAREN, END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    RPAREN         reduce using <a href="#prod48">rule 48</font></a> (constant)
+    END            reduce using <a href="#prod48">rule 48</font></a> (constant)
+    SEMICOLON      reduce using <a href="#prod48">rule 48</font></a> (constant)
+    BEGIN          reduce using <a href="#prod48">rule 48</font></a> (constant)
+
+
+
+<b><a name="state23">State</a> <a href="#state23">23</font></a></b>
+  <b>Kernel Items</b>
+    49 constant: FLOATNUM .
+	-lookahead: { RPAREN, END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    RPAREN         reduce using <a href="#prod49">rule 49</font></a> (constant)
+    END            reduce using <a href="#prod49">rule 49</font></a> (constant)
+    SEMICOLON      reduce using <a href="#prod49">rule 49</font></a> (constant)
+    BEGIN          reduce using <a href="#prod49">rule 49</font></a> (constant)
+
+
+
+<b><a name="state24">State</a> <a href="#state24">24</font></a></b>
+  <b>Kernel Items</b>
+    50 constant: STRING2 .
+	-lookahead: { RPAREN, END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    RPAREN         reduce using <a href="#prod50">rule 50</font></a> (constant)
+    END            reduce using <a href="#prod50">rule 50</font></a> (constant)
+    SEMICOLON      reduce using <a href="#prod50">rule 50</font></a> (constant)
+    BEGIN          reduce using <a href="#prod50">rule 50</font></a> (constant)
+
+
+
+<b><a name="state25">State</a> <a href="#state25">25</font></a></b>
+  <b>Kernel Items</b>
+    51 constant: STRING1 .
+	-lookahead: { RPAREN, END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    RPAREN         reduce using <a href="#prod51">rule 51</font></a> (constant)
+    END            reduce using <a href="#prod51">rule 51</font></a> (constant)
+    SEMICOLON      reduce using <a href="#prod51">rule 51</font></a> (constant)
+    BEGIN          reduce using <a href="#prod51">rule 51</font></a> (constant)
+
+
+
+<b><a name="state26">State</a> <a href="#state26">26</font></a></b>
+  <b>Kernel Items</b>
+    52 constant: TRUE .
+	-lookahead: { RPAREN, END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    RPAREN         reduce using <a href="#prod52">rule 52</font></a> (constant)
+    END            reduce using <a href="#prod52">rule 52</font></a> (constant)
+    SEMICOLON      reduce using <a href="#prod52">rule 52</font></a> (constant)
+    BEGIN          reduce using <a href="#prod52">rule 52</font></a> (constant)
+
+
+
+<b><a name="state27">State</a> <a href="#state27">27</font></a></b>
+  <b>Kernel Items</b>
+    53 constant: FALSE .
+	-lookahead: { RPAREN, END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    RPAREN         reduce using <a href="#prod53">rule 53</font></a> (constant)
+    END            reduce using <a href="#prod53">rule 53</font></a> (constant)
+    SEMICOLON      reduce using <a href="#prod53">rule 53</font></a> (constant)
+    BEGIN          reduce using <a href="#prod53">rule 53</font></a> (constant)
+
+
+
+<b><a name="state28">State</a> <a href="#state28">28</font></a></b>
+  <b>Kernel Items</b>
+    54 constant: NULL .
+	-lookahead: { RPAREN, END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    RPAREN         reduce using <a href="#prod54">rule 54</font></a> (constant)
+    END            reduce using <a href="#prod54">rule 54</font></a> (constant)
+    SEMICOLON      reduce using <a href="#prod54">rule 54</font></a> (constant)
+    BEGIN          reduce using <a href="#prod54">rule 54</font></a> (constant)
+
+
+
+<b><a name="state29">State</a> <a href="#state29">29</font></a></b>
+  <b>Kernel Items</b>
+    31 factor: memberAcces .
+	-lookahead: { RPAREN, END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    RPAREN         reduce using <a href="#prod31">rule 31</font></a> (factor)
+    END            reduce using <a href="#prod31">rule 31</font></a> (factor)
+    SEMICOLON      reduce using <a href="#prod31">rule 31</font></a> (factor)
+    BEGIN          reduce using <a href="#prod31">rule 31</font></a> (factor)
+
+
+
+<b><a name="state30">State</a> <a href="#state30">30</font></a></b>
+  <b>Kernel Items</b>
+    32 memberAcces: memberVariant .
+	-lookahead: { RPAREN, END, SEMICOLON, BEGIN }
+    33 memberAcces: memberVariant . DOT memberAcces
+
+  <b>Parser Actions</b>
+    DOT            shift, and go to state <a href="#state31">31</font></a>
+    RPAREN         reduce using <a href="#prod32">rule 32</font></a> (memberAcces)
+    END            reduce using <a href="#prod32">rule 32</font></a> (memberAcces)
+    SEMICOLON      reduce using <a href="#prod32">rule 32</font></a> (memberAcces)
+    BEGIN          reduce using <a href="#prod32">rule 32</font></a> (memberAcces)
+
+
+
+<b><a name="state31">State</a> <a href="#state31">31</font></a></b>
+  <b>Kernel Items</b>
+    33 memberAcces: memberVariant DOT . memberAcces
+
+  <b>Parser Actions</b>
+    ID             shift, and go to state <a href="#state16">16</font></a>
+
+  <b>Transitions</b>
+    memberAcces    go to state <a href="#state32">32</font></a>
+    memberVariant  go to state <a href="#state30">30</font></a>
+    memberSingle   go to state <a href="#state33">33</font></a>
+    identifer      go to state <a href="#state38">38</font></a>
+    procedure      go to state <a href="#state63">63</font></a>
+
+
+<b><a name="state32">State</a> <a href="#state32">32</font></a></b>
+  <b>Kernel Items</b>
+    33 memberAcces: memberVariant DOT memberAcces .
+	-lookahead: { RPAREN, END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    RPAREN         reduce using <a href="#prod33">rule 33</font></a> (memberAcces)
+    END            reduce using <a href="#prod33">rule 33</font></a> (memberAcces)
+    SEMICOLON      reduce using <a href="#prod33">rule 33</font></a> (memberAcces)
+    BEGIN          reduce using <a href="#prod33">rule 33</font></a> (memberAcces)
+
+
+
+<b><a name="state33">State</a> <a href="#state33">33</font></a></b>
+  <b>Kernel Items</b>
+    34 memberVariant: memberSingle .
+	-lookahead: { DOT, RPAREN, END, SEMICOLON, BEGIN }
+    45 procedure: memberSingle . LPAREN methodArguments RPAREN
+    46 procedure: memberSingle . LPAREN RPAREN
+
+  <b>Parser Actions</b>
+    LPAREN         shift, and go to state <a href="#state34">34</font></a>
+    DOT            reduce using <a href="#prod34">rule 34</font></a> (memberVariant)
+    RPAREN         reduce using <a href="#prod34">rule 34</font></a> (memberVariant)
+    END            reduce using <a href="#prod34">rule 34</font></a> (memberVariant)
+    SEMICOLON      reduce using <a href="#prod34">rule 34</font></a> (memberVariant)
+    BEGIN          reduce using <a href="#prod34">rule 34</font></a> (memberVariant)
+
+
+
+<b><a name="state34">State</a> <a href="#state34">34</font></a></b>
+  <b>Kernel Items</b>
+    45 procedure: memberSingle LPAREN . methodArguments RPAREN
+    46 procedure: memberSingle LPAREN . RPAREN
+
+  <b>Parser Actions</b>
+    RPAREN         shift, and go to state <a href="#state37">37</font></a>
+    INTNUM         shift, and go to state <a href="#state22">22</font></a>
+    FLOATNUM       shift, and go to state <a href="#state23">23</font></a>
+    STRING2        shift, and go to state <a href="#state24">24</font></a>
+    STRING1        shift, and go to state <a href="#state25">25</font></a>
+    TRUE           shift, and go to state <a href="#state26">26</font></a>
+    FALSE          shift, and go to state <a href="#state27">27</font></a>
+    NULL           shift, and go to state <a href="#state28">28</font></a>
+    ID             shift, and go to state <a href="#state16">16</font></a>
+
+  <b>Transitions</b>
+    methodArguments go to state <a href="#state35">35</font></a>
+    factor         go to state <a href="#state20">20</font></a>
+    constant       go to state <a href="#state21">21</font></a>
+    memberAcces    go to state <a href="#state29">29</font></a>
+    memberVariant  go to state <a href="#state30">30</font></a>
+    memberSingle   go to state <a href="#state33">33</font></a>
+    identifer      go to state <a href="#state38">38</font></a>
+    procedure      go to state <a href="#state63">63</font></a>
+
+
+<b><a name="state35">State</a> <a href="#state35">35</font></a></b>
+  <b>Kernel Items</b>
+    45 procedure: memberSingle LPAREN methodArguments . RPAREN
+
+  <b>Parser Actions</b>
+    RPAREN         shift, and go to state <a href="#state36">36</font></a>
+
+
+
+<b><a name="state36">State</a> <a href="#state36">36</font></a></b>
+  <b>Kernel Items</b>
+    45 procedure: memberSingle LPAREN methodArguments RPAREN .
+	-lookahead: { DOT, RPAREN, END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    DOT            reduce using <a href="#prod45">rule 45</font></a> (procedure)
+    RPAREN         reduce using <a href="#prod45">rule 45</font></a> (procedure)
+    END            reduce using <a href="#prod45">rule 45</font></a> (procedure)
+    SEMICOLON      reduce using <a href="#prod45">rule 45</font></a> (procedure)
+    BEGIN          reduce using <a href="#prod45">rule 45</font></a> (procedure)
+
+
+
+<b><a name="state37">State</a> <a href="#state37">37</font></a></b>
+  <b>Kernel Items</b>
+    46 procedure: memberSingle LPAREN RPAREN .
+	-lookahead: { DOT, RPAREN, END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    DOT            reduce using <a href="#prod46">rule 46</font></a> (procedure)
+    RPAREN         reduce using <a href="#prod46">rule 46</font></a> (procedure)
+    END            reduce using <a href="#prod46">rule 46</font></a> (procedure)
+    SEMICOLON      reduce using <a href="#prod46">rule 46</font></a> (procedure)
+    BEGIN          reduce using <a href="#prod46">rule 46</font></a> (procedure)
+
+
+
+<b><a name="state38">State</a> <a href="#state38">38</font></a></b>
+  <b>Kernel Items</b>
+    36 memberSingle: identifer .
+	-lookahead: { LPAREN, DOT, RPAREN, END, SEMICOLON, BEGIN }
+    37 memberSingle: identifer . LESS genericArgs GREATE
+
+  <b>Parser Actions</b>
+    LESS           shift, and go to state <a href="#state39">39</font></a>
+    LPAREN         reduce using <a href="#prod36">rule 36</font></a> (memberSingle)
+    DOT            reduce using <a href="#prod36">rule 36</font></a> (memberSingle)
+    RPAREN         reduce using <a href="#prod36">rule 36</font></a> (memberSingle)
+    END            reduce using <a href="#prod36">rule 36</font></a> (memberSingle)
+    SEMICOLON      reduce using <a href="#prod36">rule 36</font></a> (memberSingle)
+    BEGIN          reduce using <a href="#prod36">rule 36</font></a> (memberSingle)
+
+
+
+<b><a name="state39">State</a> <a href="#state39">39</font></a></b>
+  <b>Kernel Items</b>
+    37 memberSingle: identifer LESS . genericArgs GREATE
+
+  <b>Parser Actions</b>
+    ID             shift, and go to state <a href="#state16">16</font></a>
+    ARRAY          shift, and go to state <a href="#state53">53</font></a>
+
+  <b>Transitions</b>
+    genericArgs    go to state <a href="#state40">40</font></a>
+    type           go to state <a href="#state52">52</font></a>
+    genericType    go to state <a href="#state44">44</font></a>
+    genericTypeSing go to state <a href="#state45">45</font></a>
+    identifer      go to state <a href="#state48">48</font></a>
+
+
+<b><a name="state40">State</a> <a href="#state40">40</font></a></b>
+  <b>Kernel Items</b>
+    37 memberSingle: identifer LESS genericArgs . GREATE
+    64 genericArgs: genericArgs . COLON type
+
+  <b>Parser Actions</b>
+    GREATE         shift, and go to state <a href="#state41">41</font></a>
+    COLON          shift, and go to state <a href="#state42">42</font></a>
+
+
+
+<b><a name="state41">State</a> <a href="#state41">41</font></a></b>
+  <b>Kernel Items</b>
+    37 memberSingle: identifer LESS genericArgs GREATE .
+	-lookahead: { LPAREN, DOT, RPAREN, END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    LPAREN         reduce using <a href="#prod37">rule 37</font></a> (memberSingle)
+    DOT            reduce using <a href="#prod37">rule 37</font></a> (memberSingle)
+    RPAREN         reduce using <a href="#prod37">rule 37</font></a> (memberSingle)
+    END            reduce using <a href="#prod37">rule 37</font></a> (memberSingle)
+    SEMICOLON      reduce using <a href="#prod37">rule 37</font></a> (memberSingle)
+    BEGIN          reduce using <a href="#prod37">rule 37</font></a> (memberSingle)
+
+
+
+<b><a name="state42">State</a> <a href="#state42">42</font></a></b>
+  <b>Kernel Items</b>
+    64 genericArgs: genericArgs COLON . type
+
+  <b>Parser Actions</b>
+    ID             shift, and go to state <a href="#state16">16</font></a>
+    ARRAY          shift, and go to state <a href="#state53">53</font></a>
+
+  <b>Transitions</b>
+    type           go to state <a href="#state43">43</font></a>
+    genericType    go to state <a href="#state44">44</font></a>
+    genericTypeSing go to state <a href="#state45">45</font></a>
+    identifer      go to state <a href="#state48">48</font></a>
+
+
+<b><a name="state43">State</a> <a href="#state43">43</font></a></b>
+  <b>Kernel Items</b>
+    64 genericArgs: genericArgs COLON type .
+	-lookahead: { GREATE, COLON }
+
+  <b>Parser Actions</b>
+    GREATE         reduce using <a href="#prod64">rule 64</font></a> (genericArgs)
+    COLON          reduce using <a href="#prod64">rule 64</font></a> (genericArgs)
+
+
+
+<b><a name="state44">State</a> <a href="#state44">44</font></a></b>
+  <b>Kernel Items</b>
+    55 type: genericType .
+	-lookahead: { GREATE, COLON, LPAREN, DOT, ID, END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    GREATE         reduce using <a href="#prod55">rule 55</font></a> (type)
+    COLON          reduce using <a href="#prod55">rule 55</font></a> (type)
+    LPAREN         reduce using <a href="#prod55">rule 55</font></a> (type)
+    DOT            reduce using <a href="#prod55">rule 55</font></a> (type)
+    ID             reduce using <a href="#prod55">rule 55</font></a> (type)
+    END            reduce using <a href="#prod55">rule 55</font></a> (type)
+    SEMICOLON      reduce using <a href="#prod55">rule 55</font></a> (type)
+    BEGIN          reduce using <a href="#prod55">rule 55</font></a> (type)
+
+
+
+<b><a name="state45">State</a> <a href="#state45">45</font></a></b>
+  <b>Kernel Items</b>
+    61 genericType: genericTypeSing .
+	-lookahead: { ASSIGN, LPAREN, DOT, ID, END, SEMICOLON, BEGIN, GREATE, COLON }
+    62 genericType: genericTypeSing . DOT genericType
+
+  <b>Parser Actions</b>
+    DOT            shift, and go to state <a href="#state46">46</font></a>
+    ASSIGN         reduce using <a href="#prod61">rule 61</font></a> (genericType)
+    LPAREN         reduce using <a href="#prod61">rule 61</font></a> (genericType)
+    ID             reduce using <a href="#prod61">rule 61</font></a> (genericType)
+    END            reduce using <a href="#prod61">rule 61</font></a> (genericType)
+    SEMICOLON      reduce using <a href="#prod61">rule 61</font></a> (genericType)
+    BEGIN          reduce using <a href="#prod61">rule 61</font></a> (genericType)
+    GREATE         reduce using <a href="#prod61">rule 61</font></a> (genericType)
+    COLON          reduce using <a href="#prod61">rule 61</font></a> (genericType)
+
+
+
+<b><a name="state46">State</a> <a href="#state46">46</font></a></b>
+  <b>Kernel Items</b>
+    62 genericType: genericTypeSing DOT . genericType
+
+  <b>Parser Actions</b>
+    ID             shift, and go to state <a href="#state16">16</font></a>
+
+  <b>Transitions</b>
+    genericType    go to state <a href="#state47">47</font></a>
+    genericTypeSing go to state <a href="#state45">45</font></a>
+    identifer      go to state <a href="#state48">48</font></a>
+
+
+<b><a name="state47">State</a> <a href="#state47">47</font></a></b>
+  <b>Kernel Items</b>
+    62 genericType: genericTypeSing DOT genericType .
+	-lookahead: { ASSIGN, LPAREN, DOT, ID, END, SEMICOLON, BEGIN, GREATE, COLON }
+
+  <b>Parser Actions</b>
+    ASSIGN         reduce using <a href="#prod62">rule 62</font></a> (genericType)
+    LPAREN         reduce using <a href="#prod62">rule 62</font></a> (genericType)
+    DOT            reduce using <a href="#prod62">rule 62</font></a> (genericType)
+    ID             reduce using <a href="#prod62">rule 62</font></a> (genericType)
+    END            reduce using <a href="#prod62">rule 62</font></a> (genericType)
+    SEMICOLON      reduce using <a href="#prod62">rule 62</font></a> (genericType)
+    BEGIN          reduce using <a href="#prod62">rule 62</font></a> (genericType)
+    GREATE         reduce using <a href="#prod62">rule 62</font></a> (genericType)
+    COLON          reduce using <a href="#prod62">rule 62</font></a> (genericType)
+
+
+
+<b><a name="state48">State</a> <a href="#state48">48</font></a></b>
+  <b>Kernel Items</b>
+    65 genericTypeSing: identifer . LESS genericArgs GREATE
+    66 genericTypeSing: identifer .
+	-lookahead: { DOT, ASSIGN, LPAREN, ID, END, SEMICOLON, BEGIN, GREATE, COLON }
+
+  <b>Parser Actions</b>
+    LESS           shift, and go to state <a href="#state49">49</font></a>
+    DOT            reduce using <a href="#prod66">rule 66</font></a> (genericTypeSing)
+    ASSIGN         reduce using <a href="#prod66">rule 66</font></a> (genericTypeSing)
+    LPAREN         reduce using <a href="#prod66">rule 66</font></a> (genericTypeSing)
+    ID             reduce using <a href="#prod66">rule 66</font></a> (genericTypeSing)
+    END            reduce using <a href="#prod66">rule 66</font></a> (genericTypeSing)
+    SEMICOLON      reduce using <a href="#prod66">rule 66</font></a> (genericTypeSing)
+    BEGIN          reduce using <a href="#prod66">rule 66</font></a> (genericTypeSing)
+    GREATE         reduce using <a href="#prod66">rule 66</font></a> (genericTypeSing)
+    COLON          reduce using <a href="#prod66">rule 66</font></a> (genericTypeSing)
+
+
+
+<b><a name="state49">State</a> <a href="#state49">49</font></a></b>
+  <b>Kernel Items</b>
+    65 genericTypeSing: identifer LESS . genericArgs GREATE
+
+  <b>Parser Actions</b>
+    ID             shift, and go to state <a href="#state16">16</font></a>
+    ARRAY          shift, and go to state <a href="#state53">53</font></a>
+
+  <b>Transitions</b>
+    genericArgs    go to state <a href="#state50">50</font></a>
+    type           go to state <a href="#state52">52</font></a>
+    genericType    go to state <a href="#state44">44</font></a>
+    genericTypeSing go to state <a href="#state45">45</font></a>
+    identifer      go to state <a href="#state48">48</font></a>
+
+
+<b><a name="state50">State</a> <a href="#state50">50</font></a></b>
+  <b>Kernel Items</b>
+    65 genericTypeSing: identifer LESS genericArgs . GREATE
+    64 genericArgs: genericArgs . COLON type
+
+  <b>Parser Actions</b>
+    GREATE         shift, and go to state <a href="#state51">51</font></a>
+    COLON          shift, and go to state <a href="#state42">42</font></a>
+
+
+
+<b><a name="state51">State</a> <a href="#state51">51</font></a></b>
+  <b>Kernel Items</b>
+    65 genericTypeSing: identifer LESS genericArgs GREATE .
+	-lookahead: { DOT, ASSIGN, LPAREN, ID, END, SEMICOLON, BEGIN, GREATE, COLON }
+
+  <b>Parser Actions</b>
+    DOT            reduce using <a href="#prod65">rule 65</font></a> (genericTypeSing)
+    ASSIGN         reduce using <a href="#prod65">rule 65</font></a> (genericTypeSing)
+    LPAREN         reduce using <a href="#prod65">rule 65</font></a> (genericTypeSing)
+    ID             reduce using <a href="#prod65">rule 65</font></a> (genericTypeSing)
+    END            reduce using <a href="#prod65">rule 65</font></a> (genericTypeSing)
+    SEMICOLON      reduce using <a href="#prod65">rule 65</font></a> (genericTypeSing)
+    BEGIN          reduce using <a href="#prod65">rule 65</font></a> (genericTypeSing)
+    GREATE         reduce using <a href="#prod65">rule 65</font></a> (genericTypeSing)
+    COLON          reduce using <a href="#prod65">rule 65</font></a> (genericTypeSing)
+
+
+
+<b><a name="state52">State</a> <a href="#state52">52</font></a></b>
+  <b>Kernel Items</b>
+    63 genericArgs: type .
+	-lookahead: { GREATE, COLON }
+
+  <b>Parser Actions</b>
+    GREATE         reduce using <a href="#prod63">rule 63</font></a> (genericArgs)
+    COLON          reduce using <a href="#prod63">rule 63</font></a> (genericArgs)
+
+
+
+<b><a name="state53">State</a> <a href="#state53">53</font></a></b>
+  <b>Kernel Items</b>
+    56 type: ARRAY . type
+    57 type: ARRAY . SLPAREN SRPAREN type
+    58 type: ARRAY . SLPAREN dimension SRPAREN type
+
+  <b>Parser Actions</b>
+    SLPAREN        shift, and go to state <a href="#state55">55</font></a>
+    ID             shift, and go to state <a href="#state16">16</font></a>
+    ARRAY          shift, and go to state <a href="#state53">53</font></a>
+
+  <b>Transitions</b>
+    type           go to state <a href="#state54">54</font></a>
+    genericType    go to state <a href="#state44">44</font></a>
+    genericTypeSing go to state <a href="#state45">45</font></a>
+    identifer      go to state <a href="#state48">48</font></a>
+
+
+<b><a name="state54">State</a> <a href="#state54">54</font></a></b>
+  <b>Kernel Items</b>
+    56 type: ARRAY type .
+	-lookahead: { LPAREN, DOT, ID, END, SEMICOLON, BEGIN, GREATE, COLON }
+
+  <b>Parser Actions</b>
+    LPAREN         reduce using <a href="#prod56">rule 56</font></a> (type)
+    DOT            reduce using <a href="#prod56">rule 56</font></a> (type)
+    ID             reduce using <a href="#prod56">rule 56</font></a> (type)
+    END            reduce using <a href="#prod56">rule 56</font></a> (type)
+    SEMICOLON      reduce using <a href="#prod56">rule 56</font></a> (type)
+    BEGIN          reduce using <a href="#prod56">rule 56</font></a> (type)
+    GREATE         reduce using <a href="#prod56">rule 56</font></a> (type)
+    COLON          reduce using <a href="#prod56">rule 56</font></a> (type)
+
+
+
+<b><a name="state55">State</a> <a href="#state55">55</font></a></b>
+  <b>Kernel Items</b>
+    57 type: ARRAY SLPAREN . SRPAREN type
+    58 type: ARRAY SLPAREN . dimension SRPAREN type
+
+  <b>Parser Actions</b>
+    SRPAREN        shift, and go to state <a href="#state56">56</font></a>
+    COLON          shift, and go to state <a href="#state62">62</font></a>
+
+  <b>Transitions</b>
+    dimension      go to state <a href="#state58">58</font></a>
+
+
+<b><a name="state56">State</a> <a href="#state56">56</font></a></b>
+  <b>Kernel Items</b>
+    57 type: ARRAY SLPAREN SRPAREN . type
+
+  <b>Parser Actions</b>
+    ID             shift, and go to state <a href="#state16">16</font></a>
+    ARRAY          shift, and go to state <a href="#state53">53</font></a>
+
+  <b>Transitions</b>
+    type           go to state <a href="#state57">57</font></a>
+    genericType    go to state <a href="#state44">44</font></a>
+    genericTypeSing go to state <a href="#state45">45</font></a>
+    identifer      go to state <a href="#state48">48</font></a>
+
+
+<b><a name="state57">State</a> <a href="#state57">57</font></a></b>
+  <b>Kernel Items</b>
+    57 type: ARRAY SLPAREN SRPAREN type .
+	-lookahead: { LPAREN, DOT, ID, END, SEMICOLON, BEGIN, GREATE, COLON }
+
+  <b>Parser Actions</b>
+    LPAREN         reduce using <a href="#prod57">rule 57</font></a> (type)
+    DOT            reduce using <a href="#prod57">rule 57</font></a> (type)
+    ID             reduce using <a href="#prod57">rule 57</font></a> (type)
+    END            reduce using <a href="#prod57">rule 57</font></a> (type)
+    SEMICOLON      reduce using <a href="#prod57">rule 57</font></a> (type)
+    BEGIN          reduce using <a href="#prod57">rule 57</font></a> (type)
+    GREATE         reduce using <a href="#prod57">rule 57</font></a> (type)
+    COLON          reduce using <a href="#prod57">rule 57</font></a> (type)
+
+
+
+<b><a name="state58">State</a> <a href="#state58">58</font></a></b>
+  <b>Kernel Items</b>
+    58 type: ARRAY SLPAREN dimension . SRPAREN type
+    60 dimension: dimension . COLON
+
+  <b>Parser Actions</b>
+    SRPAREN        shift, and go to state <a href="#state59">59</font></a>
+    COLON          shift, and go to state <a href="#state61">61</font></a>
+
+
+
+<b><a name="state59">State</a> <a href="#state59">59</font></a></b>
+  <b>Kernel Items</b>
+    58 type: ARRAY SLPAREN dimension SRPAREN . type
+
+  <b>Parser Actions</b>
+    ID             shift, and go to state <a href="#state16">16</font></a>
+    ARRAY          shift, and go to state <a href="#state53">53</font></a>
+
+  <b>Transitions</b>
+    type           go to state <a href="#state60">60</font></a>
+    genericType    go to state <a href="#state44">44</font></a>
+    genericTypeSing go to state <a href="#state45">45</font></a>
+    identifer      go to state <a href="#state48">48</font></a>
+
+
+<b><a name="state60">State</a> <a href="#state60">60</font></a></b>
+  <b>Kernel Items</b>
+    58 type: ARRAY SLPAREN dimension SRPAREN type .
+	-lookahead: { LPAREN, DOT, ID, END, SEMICOLON, BEGIN, GREATE, COLON }
+
+  <b>Parser Actions</b>
+    LPAREN         reduce using <a href="#prod58">rule 58</font></a> (type)
+    DOT            reduce using <a href="#prod58">rule 58</font></a> (type)
+    ID             reduce using <a href="#prod58">rule 58</font></a> (type)
+    END            reduce using <a href="#prod58">rule 58</font></a> (type)
+    SEMICOLON      reduce using <a href="#prod58">rule 58</font></a> (type)
+    BEGIN          reduce using <a href="#prod58">rule 58</font></a> (type)
+    GREATE         reduce using <a href="#prod58">rule 58</font></a> (type)
+    COLON          reduce using <a href="#prod58">rule 58</font></a> (type)
+
+
+
+<b><a name="state61">State</a> <a href="#state61">61</font></a></b>
+  <b>Kernel Items</b>
+    60 dimension: dimension COLON .
+	-lookahead: { SRPAREN, COLON }
+
+  <b>Parser Actions</b>
+    SRPAREN        reduce using <a href="#prod60">rule 60</font></a> (dimension)
+    COLON          reduce using <a href="#prod60">rule 60</font></a> (dimension)
+
+
+
+<b><a name="state62">State</a> <a href="#state62">62</font></a></b>
+  <b>Kernel Items</b>
+    59 dimension: COLON .
+	-lookahead: { SRPAREN, COLON }
+
+  <b>Parser Actions</b>
+    SRPAREN        reduce using <a href="#prod59">rule 59</font></a> (dimension)
+    COLON          reduce using <a href="#prod59">rule 59</font></a> (dimension)
+
+
+
+<b><a name="state63">State</a> <a href="#state63">63</font></a></b>
+  <b>Kernel Items</b>
+    35 memberVariant: procedure .
+	-lookahead: { DOT, RPAREN, END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    DOT            reduce using <a href="#prod35">rule 35</font></a> (memberVariant)
+    RPAREN         reduce using <a href="#prod35">rule 35</font></a> (memberVariant)
+    END            reduce using <a href="#prod35">rule 35</font></a> (memberVariant)
+    SEMICOLON      reduce using <a href="#prod35">rule 35</font></a> (memberVariant)
+    BEGIN          reduce using <a href="#prod35">rule 35</font></a> (memberVariant)
+
+
+
+<b><a name="state64">State</a> <a href="#state64">64</font></a></b>
+  <b>Kernel Items</b>
+    44 c: type DOT . LPAREN methodArguments RPAREN
+
+  <b>Parser Actions</b>
+    LPAREN         shift, and go to state <a href="#state65">65</font></a>
+
+
+
+<b><a name="state65">State</a> <a href="#state65">65</font></a></b>
+  <b>Kernel Items</b>
+    44 c: type DOT LPAREN . methodArguments RPAREN
+
+  <b>Parser Actions</b>
+    INTNUM         shift, and go to state <a href="#state22">22</font></a>
+    FLOATNUM       shift, and go to state <a href="#state23">23</font></a>
+    STRING2        shift, and go to state <a href="#state24">24</font></a>
+    STRING1        shift, and go to state <a href="#state25">25</font></a>
+    TRUE           shift, and go to state <a href="#state26">26</font></a>
+    FALSE          shift, and go to state <a href="#state27">27</font></a>
+    NULL           shift, and go to state <a href="#state28">28</font></a>
+    ID             shift, and go to state <a href="#state16">16</font></a>
+
+  <b>Transitions</b>
+    methodArguments go to state <a href="#state66">66</font></a>
+    factor         go to state <a href="#state20">20</font></a>
+    constant       go to state <a href="#state21">21</font></a>
+    memberAcces    go to state <a href="#state29">29</font></a>
+    memberVariant  go to state <a href="#state30">30</font></a>
+    memberSingle   go to state <a href="#state33">33</font></a>
+    identifer      go to state <a href="#state38">38</font></a>
+    procedure      go to state <a href="#state63">63</font></a>
+
+
+<b><a name="state66">State</a> <a href="#state66">66</font></a></b>
+  <b>Kernel Items</b>
+    44 c: type DOT LPAREN methodArguments . RPAREN
+
+  <b>Parser Actions</b>
+    RPAREN         shift, and go to state <a href="#state67">67</font></a>
+
+
+
+<b><a name="state67">State</a> <a href="#state67">67</font></a></b>
+  <b>Kernel Items</b>
+    44 c: type DOT LPAREN methodArguments RPAREN .
+	-lookahead: { END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    END            reduce using <a href="#prod44">rule 44</font></a> (c)
+    SEMICOLON      reduce using <a href="#prod44">rule 44</font></a> (c)
+    BEGIN          reduce using <a href="#prod44">rule 44</font></a> (c)
+
+
+
+<b><a name="state68">State</a> <a href="#state68">68</font></a></b>
+  <b>Kernel Items</b>
+    27 vars: identifer .
+	-lookahead: { DOT, END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    DOT            reduce using <a href="#prod27">rule 27</font></a> (vars)
+    END            reduce using <a href="#prod27">rule 27</font></a> (vars)
+    SEMICOLON      reduce using <a href="#prod27">rule 27</font></a> (vars)
+    BEGIN          reduce using <a href="#prod27">rule 27</font></a> (vars)
+
+
+
+<b><a name="state69">State</a> <a href="#state69">69</font></a></b>
+  <b>Kernel Items</b>
+    55 type: genericType .
+	-lookahead: { LPAREN, DOT, ID, END, SEMICOLON, BEGIN }
+    29 varAssign: genericType . ASSIGN factor
+
+  <b>Parser Actions</b>
+    ASSIGN         shift, and go to state <a href="#state70">70</font></a>
+    LPAREN         reduce using <a href="#prod55">rule 55</font></a> (type)
+    DOT            reduce using <a href="#prod55">rule 55</font></a> (type)
+    ID             reduce using <a href="#prod55">rule 55</font></a> (type)
+    END            reduce using <a href="#prod55">rule 55</font></a> (type)
+    SEMICOLON      reduce using <a href="#prod55">rule 55</font></a> (type)
+    BEGIN          reduce using <a href="#prod55">rule 55</font></a> (type)
+
+
+
+<b><a name="state70">State</a> <a href="#state70">70</font></a></b>
+  <b>Kernel Items</b>
+    29 varAssign: genericType ASSIGN . factor
+
+  <b>Parser Actions</b>
+    INTNUM         shift, and go to state <a href="#state22">22</font></a>
+    FLOATNUM       shift, and go to state <a href="#state23">23</font></a>
+    STRING2        shift, and go to state <a href="#state24">24</font></a>
+    STRING1        shift, and go to state <a href="#state25">25</font></a>
+    TRUE           shift, and go to state <a href="#state26">26</font></a>
+    FALSE          shift, and go to state <a href="#state27">27</font></a>
+    NULL           shift, and go to state <a href="#state28">28</font></a>
+    ID             shift, and go to state <a href="#state16">16</font></a>
+
+  <b>Transitions</b>
+    factor         go to state <a href="#state71">71</font></a>
+    constant       go to state <a href="#state21">21</font></a>
+    memberAcces    go to state <a href="#state29">29</font></a>
+    memberVariant  go to state <a href="#state30">30</font></a>
+    memberSingle   go to state <a href="#state33">33</font></a>
+    identifer      go to state <a href="#state38">38</font></a>
+    procedure      go to state <a href="#state63">63</font></a>
+
+
+<b><a name="state71">State</a> <a href="#state71">71</font></a></b>
+  <b>Kernel Items</b>
+    29 varAssign: genericType ASSIGN factor .
+	-lookahead: { END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    END            reduce using <a href="#prod29">rule 29</font></a> (varAssign)
+    SEMICOLON      reduce using <a href="#prod29">rule 29</font></a> (varAssign)
+    BEGIN          reduce using <a href="#prod29">rule 29</font></a> (varAssign)
+
+
+
+<b><a name="state72">State</a> <a href="#state72">72</font></a></b>
+  <b>Kernel Items</b>
+    23 statement: varAssign .
+	-lookahead: { END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    END            reduce using <a href="#prod23">rule 23</font></a> (statement)
+    SEMICOLON      reduce using <a href="#prod23">rule 23</font></a> (statement)
+    BEGIN          reduce using <a href="#prod23">rule 23</font></a> (statement)
+
+
+
+<b><a name="state73">State</a> <a href="#state73">73</font></a></b>
+  <b>Kernel Items</b>
+    24 statement: c .
+	-lookahead: { END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    END            reduce using <a href="#prod24">rule 24</font></a> (statement)
+    SEMICOLON      reduce using <a href="#prod24">rule 24</font></a> (statement)
+    BEGIN          reduce using <a href="#prod24">rule 24</font></a> (statement)
+
+
+
+<b><a name="state74">State</a> <a href="#state74">74</font></a></b>
+  <b>Kernel Items</b>
+    43 c: mem .
+	-lookahead: { END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    END            reduce using <a href="#prod43">rule 43</font></a> (c)
+    SEMICOLON      reduce using <a href="#prod43">rule 43</font></a> (c)
+    BEGIN          reduce using <a href="#prod43">rule 43</font></a> (c)
+
+
+
+<b><a name="state75">State</a> <a href="#state75">75</font></a></b>
+  <b>Kernel Items</b>
+    25 statement: empty .
+	-lookahead: { END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    END            reduce using <a href="#prod25">rule 25</font></a> (statement)
+    SEMICOLON      reduce using <a href="#prod25">rule 25</font></a> (statement)
+    BEGIN          reduce using <a href="#prod25">rule 25</font></a> (statement)
+
+
+
+<b><a name="state76">State</a> <a href="#state76">76</font></a></b>
+  <b>Kernel Items</b>
+    21 statements: statements block . statement
+
+  <b>Parser Actions</b>
+    ID             shift, and go to state <a href="#state16">16</font></a>
+    ARRAY          shift, and go to state <a href="#state53">53</font></a>
+    END            reduce using <a href="#prod68">rule 68</font></a> (Erasing empty)
+    SEMICOLON      reduce using <a href="#prod68">rule 68</font></a> (Erasing empty)
+    BEGIN          reduce using <a href="#prod68">rule 68</font></a> (Erasing empty)
+
+  <b>Transitions</b>
+    statement      go to state <a href="#state77">77</font></a>
+    varsDefine     go to state <a href="#state11">11</font></a>
+    type           go to state <a href="#state12">12</font></a>
+    genericType    go to state <a href="#state69">69</font></a>
+    genericTypeSing go to state <a href="#state45">45</font></a>
+    identifer      go to state <a href="#state48">48</font></a>
+    varAssign      go to state <a href="#state72">72</font></a>
+    c              go to state <a href="#state73">73</font></a>
+    mem            go to state <a href="#state74">74</font></a>
+    empty          go to state <a href="#state75">75</font></a>
+
+
+<b><a name="state77">State</a> <a href="#state77">77</font></a></b>
+  <b>Kernel Items</b>
+    21 statements: statements block statement .
+	-lookahead: { END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    END            reduce using <a href="#prod21">rule 21</font></a> (statements)
+    SEMICOLON      reduce using <a href="#prod21">rule 21</font></a> (statements)
+    BEGIN          reduce using <a href="#prod21">rule 21</font></a> (statements)
+
+
+
+<b><a name="state78">State</a> <a href="#state78">78</font></a></b>
+  <b>Kernel Items</b>
+    19 statements: statement .
+	-lookahead: { END, SEMICOLON, BEGIN }
+
+  <b>Parser Actions</b>
+    END            reduce using <a href="#prod19">rule 19</font></a> (statements)
+    SEMICOLON      reduce using <a href="#prod19">rule 19</font></a> (statements)
+    BEGIN          reduce using <a href="#prod19">rule 19</font></a> (statements)
+
+
+
+<b><a name="state79">State</a> <a href="#state79">79</font></a></b>
+  <b>Kernel Items</b>
+    8 usingSection: usings .
+	-lookahead: { BEGIN }
+    11 usings: usings . using
+
+  <b>Parser Actions</b>
+    USING          shift, and go to state <a href="#state81">81</font></a>
+    BEGIN          reduce using <a href="#prod8">rule 8</font></a> (usingSection)
+
+  <b>Transitions</b>
+    using          go to state <a href="#state80">80</font></a>
+
+
+<b><a name="state80">State</a> <a href="#state80">80</font></a></b>
+  <b>Kernel Items</b>
+    11 usings: usings using .
+	-lookahead: { USING, BEGIN }
+
+  <b>Parser Actions</b>
+    USING          reduce using <a href="#prod11">rule 11</font></a> (usings)
+    BEGIN          reduce using <a href="#prod11">rule 11</font></a> (usings)
+
+
+
+<b><a name="state81">State</a> <a href="#state81">81</font></a></b>
+  <b>Kernel Items</b>
+    12 using: USING . manyUsing SEMICOLON
+
+  <b>Parser Actions</b>
+    ID             shift, and go to state <a href="#state16">16</font></a>
+
+  <b>Transitions</b>
+    manyUsing      go to state <a href="#state82">82</font></a>
+    usingSing      go to state <a href="#state90">90</font></a>
+    namespace      go to state <a href="#state86">86</font></a>
+    identifer      go to state <a href="#state89">89</font></a>
+
+
+<b><a name="state82">State</a> <a href="#state82">82</font></a></b>
+  <b>Kernel Items</b>
+    12 using: USING manyUsing . SEMICOLON
+    14 manyUsing: manyUsing . COLON usingSing
+
+  <b>Parser Actions</b>
+    SEMICOLON      shift, and go to state <a href="#state83">83</font></a>
+    COLON          shift, and go to state <a href="#state84">84</font></a>
+
+
+
+<b><a name="state83">State</a> <a href="#state83">83</font></a></b>
+  <b>Kernel Items</b>
+    12 using: USING manyUsing SEMICOLON .
+	-lookahead: { USING, BEGIN }
+
+  <b>Parser Actions</b>
+    USING          reduce using <a href="#prod12">rule 12</font></a> (using)
+    BEGIN          reduce using <a href="#prod12">rule 12</font></a> (using)
+
+
+
+<b><a name="state84">State</a> <a href="#state84">84</font></a></b>
+  <b>Kernel Items</b>
+    14 manyUsing: manyUsing COLON . usingSing
+
+  <b>Parser Actions</b>
+    ID             shift, and go to state <a href="#state16">16</font></a>
+
+  <b>Transitions</b>
+    usingSing      go to state <a href="#state85">85</font></a>
+    namespace      go to state <a href="#state86">86</font></a>
+    identifer      go to state <a href="#state89">89</font></a>
+
+
+<b><a name="state85">State</a> <a href="#state85">85</font></a></b>
+  <b>Kernel Items</b>
+    14 manyUsing: manyUsing COLON usingSing .
+	-lookahead: { SEMICOLON, COLON }
+
+  <b>Parser Actions</b>
+    SEMICOLON      reduce using <a href="#prod14">rule 14</font></a> (manyUsing)
+    COLON          reduce using <a href="#prod14">rule 14</font></a> (manyUsing)
+
+
+
+<b><a name="state86">State</a> <a href="#state86">86</font></a></b>
+  <b>Kernel Items</b>
+    15 usingSing: namespace .
+	-lookahead: { SEMICOLON, COLON }
+    17 namespace: namespace . DOT identifer
+
+  <b>Parser Actions</b>
+    DOT            shift, and go to state <a href="#state87">87</font></a>
+    SEMICOLON      reduce using <a href="#prod15">rule 15</font></a> (usingSing)
+    COLON          reduce using <a href="#prod15">rule 15</font></a> (usingSing)
+
+
+
+<b><a name="state87">State</a> <a href="#state87">87</font></a></b>
+  <b>Kernel Items</b>
+    17 namespace: namespace DOT . identifer
+
+  <b>Parser Actions</b>
+    ID             shift, and go to state <a href="#state16">16</font></a>
+
+  <b>Transitions</b>
+    identifer      go to state <a href="#state88">88</font></a>
+
+
+<b><a name="state88">State</a> <a href="#state88">88</font></a></b>
+  <b>Kernel Items</b>
+    17 namespace: namespace DOT identifer .
+	-lookahead: { DOT, SEMICOLON, COLON }
+
+  <b>Parser Actions</b>
+    DOT            reduce using <a href="#prod17">rule 17</font></a> (namespace)
+    SEMICOLON      reduce using <a href="#prod17">rule 17</font></a> (namespace)
+    COLON          reduce using <a href="#prod17">rule 17</font></a> (namespace)
+
+
+
+<b><a name="state89">State</a> <a href="#state89">89</font></a></b>
+  <b>Kernel Items</b>
+    16 namespace: identifer .
+	-lookahead: { DOT, SEMICOLON, COLON }
+
+  <b>Parser Actions</b>
+    DOT            reduce using <a href="#prod16">rule 16</font></a> (namespace)
+    SEMICOLON      reduce using <a href="#prod16">rule 16</font></a> (namespace)
+    COLON          reduce using <a href="#prod16">rule 16</font></a> (namespace)
+
+
+
+<b><a name="state90">State</a> <a href="#state90">90</font></a></b>
+  <b>Kernel Items</b>
+    13 manyUsing: usingSing .
+	-lookahead: { SEMICOLON, COLON }
+
+  <b>Parser Actions</b>
+    SEMICOLON      reduce using <a href="#prod13">rule 13</font></a> (manyUsing)
+    COLON          reduce using <a href="#prod13">rule 13</font></a> (manyUsing)
+
+
+
+<b><a name="state91">State</a> <a href="#state91">91</font></a></b>
+  <b>Kernel Items</b>
+    10 usings: using .
+	-lookahead: { USING, BEGIN }
+
+  <b>Parser Actions</b>
+    USING          reduce using <a href="#prod10">rule 10</font></a> (usings)
+    BEGIN          reduce using <a href="#prod10">rule 10</font></a> (usings)
+
+
+
+<b><a name="state92">State</a> <a href="#state92">92</font></a></b>
+  <b>Kernel Items</b>
+    9 usingSection: empty .
+	-lookahead: { BEGIN }
+
+  <b>Parser Actions</b>
+    BEGIN          reduce using <a href="#prod9">rule 9</font></a> (usingSection)
+
+
+
+<b><a name="state93">State</a> <a href="#state93">93</font></a></b>
+  <b>Kernel Items</b>
+    3 importSection: imports .
+	-lookahead: { USING, BEGIN }
+    6 imports: imports . import
+
+  <b>Parser Actions</b>
+    IMPORT         shift, and go to state <a href="#state95">95</font></a>
+    USING          reduce using <a href="#prod3">rule 3</font></a> (importSection)
+    BEGIN          reduce using <a href="#prod3">rule 3</font></a> (importSection)
+
+  <b>Transitions</b>
+    import         go to state <a href="#state94">94</font></a>
+
+
+<b><a name="state94">State</a> <a href="#state94">94</font></a></b>
+  <b>Kernel Items</b>
+    6 imports: imports import .
+	-lookahead: { IMPORT, USING, BEGIN }
+
+  <b>Parser Actions</b>
+    IMPORT         reduce using <a href="#prod6">rule 6</font></a> (imports)
+    USING          reduce using <a href="#prod6">rule 6</font></a> (imports)
+    BEGIN          reduce using <a href="#prod6">rule 6</font></a> (imports)
+
+
+
+<b><a name="state95">State</a> <a href="#state95">95</font></a></b>
+  <b>Kernel Items</b>
+    7 import: IMPORT . STRING2
+
+  <b>Parser Actions</b>
+    STRING2        shift, and go to state <a href="#state96">96</font></a>
+
+
+
+<b><a name="state96">State</a> <a href="#state96">96</font></a></b>
+  <b>Kernel Items</b>
+    7 import: IMPORT STRING2 .
+	-lookahead: { IMPORT, USING, BEGIN }
+
+  <b>Parser Actions</b>
+    IMPORT         reduce using <a href="#prod7">rule 7</font></a> (import)
+    USING          reduce using <a href="#prod7">rule 7</font></a> (import)
+    BEGIN          reduce using <a href="#prod7">rule 7</font></a> (import)
+
+
+
+<b><a name="state97">State</a> <a href="#state97">97</font></a></b>
+  <b>Kernel Items</b>
+    5 imports: import .
+	-lookahead: { IMPORT, USING, BEGIN }
+
+  <b>Parser Actions</b>
+    IMPORT         reduce using <a href="#prod5">rule 5</font></a> (imports)
+    USING          reduce using <a href="#prod5">rule 5</font></a> (imports)
+    BEGIN          reduce using <a href="#prod5">rule 5</font></a> (imports)
+
+
+
+<b><a name="state98">State</a> <a href="#state98">98</font></a></b>
+  <b>Kernel Items</b>
+    4 importSection: empty .
+	-lookahead: { USING, BEGIN }
+
+  <b>Parser Actions</b>
+    USING          reduce using <a href="#prod4">rule 4</font></a> (importSection)
+    BEGIN          reduce using <a href="#prod4">rule 4</font></a> (importSection)
+
+
+
+</font></pre></hr></body></html>

@@ -1,0 +1,90 @@
+
+// ==========================================================================
+//  GPPG error listing for yacc source file <PLNParser.y>
+// ==========================================================================
+//  Version:  1.3.6
+//  Machine:  DESKTOP-9PD9D9Q
+//  DateTime: 04.03.2018 16:22:32
+//  UserName: 5
+// ==========================================================================
+
+
+ï»¿%{
+//-^^
+// Error: This character is invalid in this context
+// Error: This character is invalid in this context
+// Error: This character is invalid in this context
+// Error: Unknown %keyword in this context
+// ------------------------------------------------
+	public TypeNameNode Root;
+//^^^^^
+// Error: Syntax error, unexpected ident
+// -------------------------------------
+	public Parser(AbstractScanner<ValueType, LexLocation> scanner) : base(scanner) { }
+//------------^-----------------------------------------------^-------^-------^
+// Error: This character is invalid in this context
+// Error: This character is invalid in this context
+// Error: This character is invalid in this context
+// Error: This character is invalid in this context
+// ------------------------------------------------
+	
+%}
+
+%output = PLNParser.cs
+
+%union {  
+			
+			public string strVal;
+			public StatementNode statementValue;
+			public BlockNode blockValue;
+			public TypeNameNode TypeNameValue;
+			public NamespaceNode NamespaceValue;
+			public IdentiferNode IdentiferValue;
+       }
+
+%using System.IO;
+%using PLN.Syntax.SyntaxTree;
+
+%namespace PLN.Parser
+%start program
+
+%token ADD,SUB,DEVIDE,MUL,LPAREN,RPAREN,SEMICOLON,BEGIN,END,COLON,DOT,ASSIGN,
+PROCEDURE,FUNCTION,ARRAY,LOOP,BREAK,CONTINUE,RETURNN,STEP,IF,AND,OR,
+TRUE,FALSE,
+NULL,
+AUTO,
+GREATE,LESS,
+SLPAREN,SRPAREN
+
+%token <strVal> INTNUM ,FLOATNUM,ID,STRING2,STRING1
+
+%type <TypeNameValue> genericType genericArgs t type
+%type <IdentiferValue> identifer
+%%	
+program			: type{ Root = $1; }
+				;
+
+				
+type			: t{}
+				| ARRAY type { }
+				| ARRAY SLPAREN INTNUM SRPAREN type{ }
+				;
+				
+t				: genericType { $$ = $1;}
+				| genericType  DOT t { $$ = new TypeNameNode($1.Identifer);$$.Generics.AddRange($1.Generics); $$.Child = $3;  }
+				;
+				
+genericArgs		: type { $$ =  new TypeNameNode(); $$.Generics.Add($1); }		
+				| genericArgs COLON type {$1.Generics.Add($3);  $$=$1;} 
+				;
+				
+genericType		: identifer LESS genericArgs GREATE {$3.Identifer=$1; $$ = $3; }
+				| identifer {$$ = new TypeNameNode($1); }
+				;	
+				
+identifer   	: ID { $$ = new IdentiferNode($1); }	
+				;			
+				
+				
+%%// ==========================================================================
+

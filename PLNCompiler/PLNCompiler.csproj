@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4723DE78-ADE9-46E5-8A48-C2E4AE771906}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>PLN</RootNamespace>
+    <AssemblyName>PLNCompiler</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>PLNCompiler.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddOnlyList.cs" />
+    <Compile Include="AddOnlyUniqueCollection.cs" />
+    <Compile Include="Compile\CodeGeneration\ConstantPusher.cs" />
+    <Compile Include="Compile\CodeGeneration\MethodGenerator.cs" />
+    <Compile Include="Compile\CodeGeneration\ModuleSetting.cs" />
+    <Compile Include="Compile\CodeGeneration\RequireBodyEventArgs.cs" />
+    <Compile Include="Compile\CodeGeneration\RequireIFBodyEventArgs.cs" />
+    <Compile Include="Compile\CodeGeneration\RequireLoopBody.cs" />
+    <Compile Include="Compile\CodeGeneration\ModuleGeneratorResult.cs" />
+    <Compile Include="Compile\ComilerSettings.cs" />
+    <Compile Include="Compile\CompilationErrorsCreator.cs" />
+    <Compile Include="Compile\CompilationErrors.cs" />
+    <Compile Include="Compile\CompilationResult.cs" />
+    <Compile Include="Compile\Errors\ErrorCode.cs" />
+    <Compile Include="Compile\Errors\ITypeToString.cs" />
+    <Compile Include="Compile\Errors\LexicalErrors.cs" />
+    <Compile Include="Compile\Errors\PLNTypeToString.cs" />
+    <Compile Include="Compile\Errors\SyntaxErrors.cs" />
+    <Compile Include="Compile\CodeGeneration\IModuleGenerator.cs" />
+    <Compile Include="Compile\ICompiler.cs" />
+    <Compile Include="Compile\CodeGeneration\PLNCodeGenerator.cs" />
+    <Compile Include="Compile\PLNCompiler.cs" />
+    <Compile Include="Compile\PLNReflection\AssemblyLoader\AssemblyHeader.cs" />
+    <Compile Include="Compile\PLNReflection\AssemblyLoader\AssemblyLoadResult.cs" />
+    <Compile Include="Compile\PLNReflection\AssemblyLoader\GACGenerator.cs" />
+    <Compile Include="Compile\PLNReflection\AssemblyLoader\IAssemblyLoader.cs" />
+    <Compile Include="Compile\PLNReflection\AssemblyLoader\PLNAssemblyLoader.cs" />
+    <Compile Include="Compile\PLNReflection\ConstructorHeader.cs" />
+    <Compile Include="Compile\PLNReflection\FieldHeader.cs" />
+    <Compile Include="Compile\PLNReflection\MemberSelector\PLNMemberSelector.cs" />
+    <Compile Include="Compile\PLNReflection\MemberSelector\ReflectionUtils.cs" />
+    <Compile Include="Compile\PLNReflection\MemberSelector\SelectMemberResult.cs" />
+    <Compile Include="Compile\PLNReflection\MemberSelector\SelectMemberResults.cs" />
+    <Compile Include="Compile\PLNReflection\MemberSelector\IMassCalculator.cs" />
+    <Compile Include="Compile\PLNReflection\IMemberHeader.cs" />
+    <Compile Include="Compile\PLNReflection\IParameterMemberHeader.cs" />
+    <Compile Include="Compile\PLNReflection\MemberSelector\IMemberSelector.cs" />
+    <Compile Include="Compile\PLNReflection\MemberFlags.cs" />
+    <Compile Include="Compile\PLNReflection\MethodHeader.cs" />
+    <Compile Include="Compile\PLNReflection\Parameter.cs" />
+    <Compile Include="Compile\PLNReflection\PropertyHeader.cs" />
+    <Compile Include="Compile\PLNReflection\StringMemberHeader.cs" />
+    <Compile Include="Compile\PLNReflection\TypeFinder\FindNestedTypeResult.cs" />
+    <Compile Include="Compile\PLNReflection\TypeFinder\NestedTypeFinder.cs" />
+    <Compile Include="Compile\PLNReflection\TypeFinder\SearchingTypeResult.cs" />
+    <Compile Include="Compile\TypeManager\AsCastResult.cs" />
+    <Compile Include="Compile\TypeManager\AssignConstantResult.cs" />
+    <Compile Include="Compile\TypeManager\CastTypeResult.cs" />
+    <Compile Include="Compile\TypeManager\ExplicictCastResult.cs" />
+    <Compile Include="Compile\TypeManager\FunctionResult.cs" />
+    <Compile Include="Compile\TypeManager\ImplicitCastResult.cs" />
+    <Compile Include="Compile\TypeManager\BinaryInitiator.cs" />
+    <Compile Include="Compile\TypeManager\InterpretBinaryResult.cs" />
+    <Compile Include="Compile\TypeManager\InterpretResult.cs" />
+    <Compile Include="Compile\TypeManager\IsCastResult.cs" />
+    <Compile Include="Compile\TypeManager\NativeConversion\CastInfo.cs" />
+    <Compile Include="Compile\TypeManager\NativeConversion\ConversionCodes.cs" />
+    <Compile Include="Compile\TypeManager\NativeConversion\ConversionInfo.cs" />
+    <Compile Include="Compile\TypeManager\NativeConversion\NativeTypeComparer.cs" />
+    <Compile Include="Compile\TypeManager\NativeConversion\PLNExplicitCast.cs" />
+    <Compile Include="Compile\TypeManager\NativeConversion\PLNUnaryOperations.cs" />
+    <Compile Include="Compile\TypeManager\NativeConversion\UnnormalizedTypes.cs" />
+    <Compile Include="Compile\TypeManager\NativeConversion\PLNBinaryOperations.cs" />
+    <Compile Include="Compile\TypeManager\NativeConversion\PLNImplicitCast.cs" />
+    <Compile Include="Compile\TypeManager\NativeConversion\PLNNativeTypeComparer.cs" />
+    <Compile Include="Compile\TypeManager\NativeConversion\NativeTypeInfo.cs" />
+    <Compile Include="Compile\TypeManager\NativeConversion\WeightInfo.cs" />
+    <Compile Include="Compile\TypeManager\TypedExpression.cs" />
+    <Compile Include="Compile\TypeManager\UnaryInitiator.cs" />
+    <Compile Include="Compile\TypeManager\InterpretUnaryResult.cs" />
+    <Compile Include="Compile\TypeManager\ITypeConversion.cs" />
+    <Compile Include="Compile\TypeManager\NativeFunction.cs" />
+    <Compile Include="Compile\TypeManager\PLNTypeConversion.cs" />
+    <Compile Include="IAddOnlyCollection.cs" />
+    <Compile Include="IAddOnlyList.cs" />
+    <Compile Include="Semantic\LabelWrapper.cs" />
+    <Compile Include="Semantic\SemanticTree\SemanticMain.cs" />
+    <Compile Include="Semantic\TypedConstant.cs" />
+    <Compile Include="Pair.cs" />
+    <Compile Include="Semantic\Collections.cs" />
+    <Compile Include="Semantic\SemanticTree\ExpressionNode.cs" />
+    <Compile Include="Semantic\SemanticTree\ExpressionNodes.cs" />
+    <Compile Include="Semantic\ISemanticVisitor.cs" />
+    <Compile Include="Semantic\SemanticTree\StatementNode.cs" />
+    <Compile Include="Semantic\SemanticTree\StatementNodes.cs" />
+    <Compile Include="Semantic\LocalWrapper.cs" />
+    <Compile Include="Syntax\ConstantParser.cs" />
+    <Compile Include="Syntax\IDirectiveVisitor.cs" />
+    <Compile Include="Syntax\SyntaxTree\DirectiveNodeBase.cs" />
+    <Compile Include="Syntax\Optimization\BinaryInitiator.cs" />
+    <Compile Include="Syntax\Optimization\ConstantInterpreterResultBinary.cs" />
+    <Compile Include="Syntax\Optimization\ConstantInterpreterResultUnary.cs" />
+    <Compile Include="Syntax\Optimization\PLNConstantInterpreter.cs" />
+    <Compile Include="Syntax\Optimization\ConstantInterpreterResult.cs" />
+    <Compile Include="Syntax\Optimization\ExpressionStack.cs" />
+    <Compile Include="Syntax\Optimization\ExpressionStackValue.cs" />
+    <Compile Include="Syntax\Optimization\IConstantInterpreter.cs" />
+    <Compile Include="Syntax\Optimization\UnaryInitiator.cs" />
+    <Compile Include="Syntax\ParseConstantResult.cs" />
+    <Compile Include="Syntax\ConstantParserSettings.cs" />
+    <Compile Include="Syntax\Optimization\ConstantNeedingEventArgs.cs" />
+    <Compile Include="Syntax\Optimization\IExpressionOptimizer.cs" />
+    <Compile Include="Syntax\SyntaxTree\DirectiveNodes.cs" />
+    <Compile Include="Syntax\TreeConverter\DirectiveInfo.cs" />
+    <Compile Include="Syntax\TreeConverter\IDirectiveGenerator.cs" />
+    <Compile Include="Syntax\TreeConverter\ITypeGenerator.cs" />
+    <Compile Include="Semantic\SemanticTree\SemanticNode.cs" />
+    <Compile Include="Syntax\TreeConverter\PLNDirectiveGenerator.cs" />
+    <Compile Include="Syntax\TreeConverter\PLNTypeGenerator.cs" />
+    <Compile Include="Compile\SimpleSearchingResult.cs" />
+    <Compile Include="IEquatableWithComparer.cs" />
+    <Compile Include="NameManagerNetComparer.cs" />
+    <Compile Include="Result.cs" />
+    <Compile Include="Syntax\Collections.cs" />
+    <Compile Include="Syntax\Constant.cs" />
+    <Compile Include="Syntax\Optimization\PLNExpressionOptimizer.cs" />
+    <Compile Include="Syntax\Location.cs" />
+    <Compile Include="Compile\Errors\SemanticErrors.cs" />
+    <Compile Include="Compile\Errors\LexicalError.cs" />
+    <Compile Include="Compile\Errors\SemanticError.cs" />
+    <Compile Include="Compile\Errors\SourceCodeException.cs" />
+    <Compile Include="Compile\Errors\SyntaxError.cs" />
+    <Compile Include="Syntax\ParsableConstant.cs" />
+    <Compile Include="Compile\PLNReflection\GenericVerify.cs" />
+    <Compile Include="Compile\PLNReflection\GenericVerifyResult.cs" />
+    <Compile Include="Compile\PLNReflection\TypeFinder\AssemblyCollection.cs" />
+    <Compile Include="Compile\PLNReflection\TypeFinder\ITypeFinder.cs" />
+    <Compile Include="Compile\PLNReflection\TypeFinder\NamespaceCollection.cs" />
+    <Compile Include="Compile\PLNReflection\TypeFinder\SearchingMemberResult.cs" />
+    <Compile Include="Compile\PLNReflection\TypeFinder\SearchingNamespaceResult.cs" />
+    <Compile Include="Compile\PLNReflection\TypeFinder\TypeFinder.cs" />
+    <Compile Include="Compile\PLNReflection\TypeFinder\TypeTree\ITypeTreeVisitor.cs" />
+    <Compile Include="Compile\PLNReflection\TypeFinder\TypeTree\NamespaceVisitor.cs" />
+    <Compile Include="Compile\PLNReflection\TypeFinder\TypeTree\TypeNodeCollection.cs" />
+    <Compile Include="Compile\PLNReflection\TypeFinder\TypeTree\TypeTreeBuilder.cs" />
+    <Compile Include="Compile\PLNReflection\TypeFinder\TypeTree\TypeTreeNodes.cs" />
+    <Compile Include="Compile\PLNReflection\TypeFinder\TypeTree\TypeVisitor.cs" />
+    <Compile Include="Compile\FindResult.cs" />
+    <Compile Include="Semantic\TempObject.cs" />
+    <Compile Include="Helpers\ShiftReduceParserCode.cs" />
+    <Compile Include="InternalCompilerException.cs" />
+    <Compile Include="PLNException.cs" />
+    <Compile Include="PresentVariantNotImplemented.cs" />
+    <Compile Include="Syntax\Analysis\PLNParser.cs" />
+    <Compile Include="Syntax\Analysis\PLNScanner.cs" />
+    <Compile Include="Syntax\Analysis\ScannerErrorEventArgs.cs" />
+    <Compile Include="Syntax\Analysis\PLNKeywords.cs" />
+    <Compile Include="Syntax\ITypeVisitor.cs" />
+    <Compile Include="Extension.cs" />
+    <Compile Include="NameManager.cs" />
+    <Compile Include="NameManagerReadOnly.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringHelper.cs" />
+    <Compile Include="Operations.cs" />
+    <Compile Include="Syntax\IStatementVisitor.cs" />
+    <Compile Include="Syntax\IExpressionVisitor.cs" />
+    <Compile Include="Syntax\SyntaxTree\ExpressionNode.cs" />
+    <Compile Include="Syntax\SyntaxTree\ExpressionNodes.cs" />
+    <Compile Include="Syntax\SyntaxTree\NotVisitNode.cs" />
+    <Compile Include="Syntax\SyntaxTree\NotVisitNodes.cs" />
+    <Compile Include="Syntax\SyntaxTree\ProgramNode.cs" />
+    <Compile Include="Syntax\SyntaxTree\StatementNode.cs" />
+    <Compile Include="Syntax\SyntaxTree\StatementNodes.cs" />
+    <Compile Include="Syntax\SyntaxTree\SyntaxNode.cs" />
+    <Compile Include="Syntax\SyntaxTree\TypeNodes.cs" />
+    <Compile Include="Syntax\TreeConverter\ITreeConverter.cs" />
+    <Compile Include="Syntax\TreeConverter\PLNTreeConverter.cs" />
+    <Compile Include="Tests\Nesteds.cs" />
+    <Compile Include="TypeAssociation.cs" />
+    <Compile Include="TypeName.cs" />
+    <Compile Include="TypePair.cs" />
+    <Compile Include="UniqueCollection.cs" />
+    <Compile Include="VirtualList.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ClassDiagram3.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

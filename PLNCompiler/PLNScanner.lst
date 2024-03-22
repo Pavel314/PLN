@@ -1,0 +1,156 @@
+
+// ==========================================================================
+//  GPLEX error listing for lex source file <PLNScanner.lex>
+// ==========================================================================
+//  Version:  1.2.2
+//  Machine:  DESKTOP-9PD9D9Q
+//  DateTime: 04.03.2018 16:43:54
+//  UserName: 5
+// ==========================================================================
+
+
+%using PLN.Parser;
+// Error: Индекс за пределами диапазона. Индекс должен быть положительным числом, а его размер не должен превышать размер коллекции.
+   // Имя параметра: index
+// ---------------------------------------------------------------------------------------------------------------------------------
+%using QUT.Gppg;
+%using System.Linq;
+%using PLN.Compiler;
+%using PLN;
+%namespace PLN.Scanner
+
+Alpha [ёЁ_а-яА-ЯA-Za-z]
+Digit  [0-9]
+AlphaDigit {Alpha}|{Digit}
+INTNUM  {Digit}+
+FLOATNUM {INTNUM}\.{INTNUM}
+ID {Alpha}{AlphaDigit}* 
+STRING2 \"[^"]*\"
+STRING1 \'[^']*\'
+
+%%
+{INTNUM} { 
+  yylval.strVal = yytext;
+  return (int)Tokens.INTNUM;
+}
+{FLOATNUM} { 
+  yylval.strVal = yytext;
+  return (int)Tokens.FLOATNUM;
+}
+
+{ID} { 
+ string Text=yytext;
+ int res = LexHelper.GetToken(Text);
+  if (res == (int)Tokens.ID)
+	yylval.strVal = Text;
+  return res;
+}
+
+
+{STRING2} {
+	yylval.strVal=yytext;
+	return (int)Tokens.STRING2;
+}
+{STRING1} {
+	yylval.strVal=yytext;
+	return (int)Tokens.STRING1;
+}
+
+
+
+[{] {return (int)Tokens.BEGIN;}
+[}] {return (int)Tokens.END;}
+[=] {return (int)Tokens.ASSIGN;}
+";" {return (int)Tokens.SEMICOLON;}
+"(" {return (int)Tokens.LPAREN;}
+")" {return (int)Tokens.RPAREN;}
+"[" {return (int)Tokens.SLPAREN;}
+"]" {return (int)Tokens.SRPAREN;}
+"+" {return (int)Tokens.ADD;}
+"-" {return (int)Tokens.SUB;}
+"/" {return (int)Tokens.DEVIDE;}
+"*" {return (int)Tokens.MUL;}
+"," {return (int)Tokens.COLON;}
+"." {return (int)Tokens.DOT;}
+[>] {return (int)Tokens.GREATE;}
+[<] {return (int)Tokens.LESS;}
+
+[^ \t\r\n] {
+	Console.WriteLine(yytext);
+if	(!OnScanError(new ScanErrorEventArgs(yytext))) return (int)Tokens.EOF;
+	return (int)Tokens.error;
+}
+
+
+%%
+public event ScanErrorCallback ScanError;
+private bool OnScanError(ScanErrorEventArgs e)
+{
+	if (!ReferenceEquals(ScanError,null))
+	return	ScanError(this,e);
+	return false;
+}
+
+//  private ErrorLocation GetErrLoc()
+ // {
+ // return new ErrorLocation(tokLin, tokCol, tokELin, tokECol);
+ // }
+
+  public override void yyerror(string format, params object[] args) 
+  {
+	  Console.WriteLine("YErr");
+         //   var strArr = args.Select(f => f.ToString());
+         //   ErrorBase.CallError(new SyntaxsErrors.UnknownConstruction(GetErrLoc(),strArr.ElementAt(0), strArr.Skip(1).ToArray()));
+			//^TODO или передовать yyline, yycol, yytext ?
+  }
+
+public string TokenToString(Tokens tok)
+{
+return String.Format("{0} ({1})",tok, yytext);
+}
+
+
+
+class LexHelper 
+{
+  public static Dictionary<string,int> Keywords;
+
+  static LexHelper() 
+  {
+    Keywords = new Dictionary<string,int>(StringHelper.PLNComparer);
+    Keywords.Add("Авто",(int)Tokens.AUTO);
+	Keywords.Add("Блок",(int)Tokens.PROCEDURE);
+	Keywords.Add("Функция",(int)Tokens.FUNCTION);
+	Keywords.Add("Массив",(int)Tokens.ARRAY);
+	Keywords.Add("Цикл",(int)Tokens.LOOP);
+	Keywords.Add("Прервать",(int)Tokens.BREAK);
+	Keywords.Add("Пропустить",(int)Tokens.CONTINUE);
+	Keywords.Add("Вернуть",(int)Tokens.RETURNN);
+	Keywords.Add("Шаг",(int)Tokens.STEP);
+	Keywords.Add("Если",(int)Tokens.IF);
+	Keywords.Add("И",(int)Tokens.AND);
+	Keywords.Add("Или",(int)Tokens.OR);
+	Keywords.Add("Истина",(int)Tokens.TRUE);
+	Keywords.Add("Ложь",(int)Tokens.FALSE);
+	Keywords.Add("Да",(int)Tokens.TRUE);
+	Keywords.Add("Нет",(int)Tokens.FALSE);
+	Keywords.Add("Нуль",(int)Tokens.NULL);
+	#if DEBUG
+	Keywords.Add("Array",(int)Tokens.ARRAY);
+	Keywords.Add("true",(int)Tokens.TRUE);
+	Keywords.Add("false",(int)Tokens.FALSE);
+	Keywords.Add("null",(int)Tokens.NULL);
+	#endif
+  }
+  public static int GetToken(string s)
+  {
+	  int tok=0;
+	 if (Keywords.TryGetValue(s,out tok))
+	  return tok;
+      return (int)Tokens.ID;
+  }
+  
+}
+
+// ==========================================================================
+
