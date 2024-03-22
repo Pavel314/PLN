@@ -228,5 +228,8 @@
     <None Include="App.config" />
     <None Include="ClassDiagram3.cd" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="doc\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

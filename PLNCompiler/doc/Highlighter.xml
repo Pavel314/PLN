@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HighlighterStyle xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/PLNEditor.SyntaxHighlighter">
+  <Brackets i:type="ArrayOfBrackets">
+    <Brackets>
+      <Close>41</Close>
+      <Color xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>961e1eaa</Name>
+      </Color>
+      <Open>40</Open>
+    </Brackets>
+    <Brackets>
+      <Close>93</Close>
+      <Color xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>961e1eaa</Name>
+      </Color>
+      <Open>91</Open>
+    </Brackets>
+  </Brackets>
+  <ColorStyles i:type="ArrayOfColorStyle">
+    <ColorStyle>
+      <BackgroundColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Transparent</Name>
+      </BackgroundColor>
+      <FontStyle>Regular</FontStyle>
+      <ForeColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Green</Name>
+      </ForeColor>
+      <StringFormat xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing" i:nil="true" />
+    </ColorStyle>
+    <ColorStyle>
+      <BackgroundColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Transparent</Name>
+      </BackgroundColor>
+      <FontStyle>Italic</FontStyle>
+      <ForeColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Blue</Name>
+      </ForeColor>
+      <StringFormat xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing" i:nil="true" />
+    </ColorStyle>
+    <ColorStyle>
+      <BackgroundColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Transparent</Name>
+      </BackgroundColor>
+      <FontStyle>Regular</FontStyle>
+      <ForeColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Magenta</Name>
+      </ForeColor>
+      <StringFormat xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing" i:nil="true" />
+    </ColorStyle>
+    <ColorStyle>
+      <BackgroundColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Transparent</Name>
+      </BackgroundColor>
+      <FontStyle>Regular</FontStyle>
+      <ForeColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Red</Name>
+      </ForeColor>
+      <StringFormat xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing" i:nil="true" />
+    </ColorStyle>
+    <ColorStyle>
+      <BackgroundColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Transparent</Name>
+      </BackgroundColor>
+      <FontStyle>Italic</FontStyle>
+      <ForeColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Brown</Name>
+      </ForeColor>
+      <StringFormat xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing" i:nil="true" />
+    </ColorStyle>
+    <ColorStyle>
+      <BackgroundColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Transparent</Name>
+      </BackgroundColor>
+      <FontStyle>Italic</FontStyle>
+      <ForeColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>SaddleBrown</Name>
+      </ForeColor>
+      <StringFormat xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing" i:nil="true" />
+    </ColorStyle>
+    <ColorStyle>
+      <BackgroundColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Transparent</Name>
+      </BackgroundColor>
+      <FontStyle>Bold</FontStyle>
+      <ForeColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Black</Name>
+      </ForeColor>
+      <StringFormat xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing" i:nil="true" />
+    </ColorStyle>
+    <ColorStyle>
+      <BackgroundColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Transparent</Name>
+      </BackgroundColor>
+      <FontStyle>Bold</FontStyle>
+      <ForeColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Navy</Name>
+      </ForeColor>
+      <StringFormat xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing" i:nil="true" />
+    </ColorStyle>
+    <ColorStyle>
+      <BackgroundColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Transparent</Name>
+      </BackgroundColor>
+      <FontStyle>Bold</FontStyle>
+      <ForeColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Navy</Name>
+      </ForeColor>
+      <StringFormat xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing" i:nil="true" />
+    </ColorStyle>
+    <ColorStyle>
+      <BackgroundColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Transparent</Name>
+      </BackgroundColor>
+      <FontStyle>Bold</FontStyle>
+      <ForeColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Navy</Name>
+      </ForeColor>
+      <StringFormat xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing" i:nil="true" />
+    </ColorStyle>
+    <ColorStyle>
+      <BackgroundColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Transparent</Name>
+      </BackgroundColor>
+      <FontStyle>Regular</FontStyle>
+      <ForeColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Navy</Name>
+      </ForeColor>
+      <StringFormat xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing" i:nil="true" />
+    </ColorStyle>
+    <ColorStyle>
+      <BackgroundColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Transparent</Name>
+      </BackgroundColor>
+      <FontStyle>Bold</FontStyle>
+      <ForeColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>ForestGreen</Name>
+      </ForeColor>
+      <StringFormat xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing" i:nil="true" />
+    </ColorStyle>
+    <ColorStyle>
+      <BackgroundColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>Transparent</Name>
+      </BackgroundColor>
+      <FontStyle>Regular</FontStyle>
+      <ForeColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+        <Name>DimGray</Name>
+      </ForeColor>
+      <StringFormat xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing" i:nil="true" />
+    </ColorStyle>
+  </ColorStyles>
+  <CommentPrefix>//</CommentPrefix>
+  <FoldingMarkers i:type="ArrayOfFoldingMarker">
+    <FoldingMarker>
+      <EndFoldingMarker>}</EndFoldingMarker>
+      <RegexOptions>None</RegexOptions>
+      <StartFoldingMarker>{</StartFoldingMarker>
+    </FoldingMarker>
+  </FoldingMarkers>
+  <GlobalSettings>
+    <BackgroundColor xmlns:d3p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+      <Name>White</Name>
+    </BackgroundColor>
+    <Font xmlns:d3p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+      <Name xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:string" xmlns="">Consolas</Name>
+      <Size xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:float" xmlns="">11</Size>
+      <Style i:type="d3p1:FontStyle" xmlns="">Regular</Style>
+      <Unit i:type="d3p1:GraphicsUnit" xmlns="">Point</Unit>
+    </Font>
+    <ForeColor xmlns:d3p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+      <Name>Black</Name>
+    </ForeColor>
+  </GlobalSettings>
+  <HighlighterElements i:type="ArrayOfHighlighterElement">
+    <HighlighterElement>
+      <Regex xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Text.RegularExpressions">
+        <pattern xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string" xmlns="">//.*</pattern>
+        <options i:type="d4p1:RegexOptions" xmlns="">Multiline</options>
+        <matchTimeout xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:long" xmlns="">-10000</matchTimeout>
+      </Regex>
+      <StyleIndex>0</StyleIndex>
+    </HighlighterElement>
+    <HighlighterElement>
+      <Regex xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Text.RegularExpressions">
+        <pattern xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string" xmlns="">""|@""|''|@".*?"|(?&lt;!@)(?&lt;range&gt;".*?[^\\]")|'.*?[^\\]'</pattern>
+        <options i:type="d4p1:RegexOptions" xmlns="">Multiline</options>
+        <matchTimeout xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:long" xmlns="">-10000</matchTimeout>
+      </Regex>
+      <StyleIndex>4</StyleIndex>
+    </HighlighterElement>
+    <HighlighterElement>
+      <Regex xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Text.RegularExpressions">
+        <pattern xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string" xmlns="">\b(\d+\.\d+)\b</pattern>
+        <options i:type="d4p1:RegexOptions" xmlns="">None</options>
+        <matchTimeout xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:long" xmlns="">-10000</matchTimeout>
+      </Regex>
+      <StyleIndex>3</StyleIndex>
+    </HighlighterElement>
+    <HighlighterElement>
+      <Regex xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Text.RegularExpressions">
+        <pattern xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string" xmlns="">\b\d+\b</pattern>
+        <options i:type="d4p1:RegexOptions" xmlns="">None</options>
+        <matchTimeout xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:long" xmlns="">-10000</matchTimeout>
+      </Regex>
+      <StyleIndex>2</StyleIndex>
+    </HighlighterElement>
+    <HighlighterElement>
+      <Regex xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Text.RegularExpressions">
+        <pattern xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string" xmlns="">\b(Блок|Функция|Импорт|Подключить)\b</pattern>
+        <options i:type="d4p1:RegexOptions" xmlns="">IgnoreCase</options>
+        <matchTimeout xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:long" xmlns="">-10000</matchTimeout>
+      </Regex>
+      <StyleIndex>6</StyleIndex>
+    </HighlighterElement>
+    <HighlighterElement>
+      <Regex xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Text.RegularExpressions">
+        <pattern xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string" xmlns="">\b(цикл|пока|делать|если|иначе|идти|Вернуть|шаг|прервать|всё|пропустить|перезапустить)\b</pattern>
+        <options i:type="d4p1:RegexOptions" xmlns="">IgnoreCase</options>
+        <matchTimeout xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:long" xmlns="">-10000</matchTimeout>
+      </Regex>
+      <StyleIndex>7</StyleIndex>
+    </HighlighterElement>
+    <HighlighterElement>
+      <Regex xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Text.RegularExpressions">
+        <pattern xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string" xmlns="">\b(новый|ссылка|тип|к|является)\b</pattern>
+        <options i:type="d4p1:RegexOptions" xmlns="">IgnoreCase</options>
+        <matchTimeout xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:long" xmlns="">-10000</matchTimeout>
+      </Regex>
+      <StyleIndex>8</StyleIndex>
+    </HighlighterElement>
+    <HighlighterElement>
+      <Regex xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Text.RegularExpressions">
+        <pattern xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string" xmlns="">\b(и|или|иИли|не)\b</pattern>
+        <options i:type="d4p1:RegexOptions" xmlns="">IgnoreCase</options>
+        <matchTimeout xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:long" xmlns="">-10000</matchTimeout>
+      </Regex>
+      <StyleIndex>9</StyleIndex>
+    </HighlighterElement>
+    <HighlighterElement>
+      <Regex xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Text.RegularExpressions">
+        <pattern xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string" xmlns="">\b(авто|нмассив)\b</pattern>
+        <options i:type="d4p1:RegexOptions" xmlns="">IgnoreCase</options>
+        <matchTimeout xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:long" xmlns="">-10000</matchTimeout>
+      </Regex>
+      <StyleIndex>10</StyleIndex>
+    </HighlighterElement>
+    <HighlighterElement>
+      <Regex xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Text.RegularExpressions">
+        <pattern xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string" xmlns="">\b(истина|ложь|да|нет|нуль)\b</pattern>
+        <options i:type="d4p1:RegexOptions" xmlns="">IgnoreCase</options>
+        <matchTimeout xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:long" xmlns="">-10000</matchTimeout>
+      </Regex>
+      <StyleIndex>1</StyleIndex>
+    </HighlighterElement>
+    <HighlighterElement>
+      <Regex xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Text.RegularExpressions">
+        <pattern xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string" xmlns="">\b(БЦелое8|Байт|Целое8|Целое16|БЦелое16|Целое|БЦелое|Целое64|БЦелое64|Вещественное|Дробное|Логическое|Булевый|Булево|Символ|Строка|Объект|Стек|Массив|Список|Очередь)\b</pattern>
+        <options i:type="d4p1:RegexOptions" xmlns="">IgnoreCase</options>
+        <matchTimeout xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:long" xmlns="">-10000</matchTimeout>
+      </Regex>
+      <StyleIndex>10</StyleIndex>
+    </HighlighterElement>
+    <HighlighterElement>
+      <Regex xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Text.RegularExpressions">
+        <pattern xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string" xmlns="">\b(Консоль|Математика|Конвертер)\b</pattern>
+        <options i:type="d4p1:RegexOptions" xmlns="">IgnoreCase</options>
+        <matchTimeout xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:long" xmlns="">-10000</matchTimeout>
+      </Regex>
+      <StyleIndex>11</StyleIndex>
+    </HighlighterElement>
+    <HighlighterElement>
+      <Regex xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Text.RegularExpressions">
+        <pattern xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string" xmlns="">\#\[[^\]\n]*\]</pattern>
+        <options i:type="d4p1:RegexOptions" xmlns="">IgnoreCase</options>
+        <matchTimeout xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:long" xmlns="">-10000</matchTimeout>
+      </Regex>
+      <StyleIndex>12</StyleIndex>
+    </HighlighterElement>
+  </HighlighterElements>
+</HighlighterStyle>
