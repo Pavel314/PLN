@@ -195,6 +195,9 @@
   <ItemGroup>
     <Content Include="Compiler\PLNCompiler.exe" />
     <Content Include="main_icon.ico" />
+    <Content Include="doc\FastColoredTextBox.dll" />
+    <Content Include="doc\FastColoredTextBox.xml" />
+    <Content Include="doc\Highlighter.xml" />
     <None Include="res\main_icon.ico" />
   </ItemGroup>
   <ItemGroup>
