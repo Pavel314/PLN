@@ -227,9 +227,22 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="ClassDiagram3.cd" />
+    <None Include="doc\1.Привет Мир.pln" />
+    <None Include="doc\10.Сортировка.pln" />
+    <None Include="doc\2.Площадь.pln" />
+    <None Include="doc\3.Максимум.pln" />
+    <None Include="doc\4.Чётное и Положительное.pln" />
+    <None Include="doc\5.Калькулятор.pln" />
+    <None Include="doc\6.Числа Фибоначи.pln" />
+    <None Include="doc\7.Число ПИ.pln" />
+    <None Include="doc\8.Таблица умножение.pln" />
+    <None Include="doc\9.Среднее,Макс,Мин.pln" />
+    <None Include="doc\PLNСправка.chm" />
+    <None Include="doc\SmartGOTO.docx" />
+    <None Include="doc\Множество Мандельброта.pln" />
+    <None Include="doc\Сумма%28Битовые операции%29.pln" />
+    <None Include="doc\Фрактальное дерево.pln" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="doc\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
