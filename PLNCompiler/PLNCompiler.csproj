@@ -237,6 +237,7 @@
     <None Include="doc\7.Число ПИ.pln" />
     <None Include="doc\8.Таблица умножение.pln" />
     <None Include="doc\9.Среднее,Макс,Мин.pln" />
+    <None Include="doc\GRABC.pas" />
     <None Include="doc\PLNСправка.chm" />
     <None Include="doc\SmartGOTO.docx" />
     <None Include="doc\Множество Мандельброта.pln" />
@@ -244,6 +245,7 @@
     <None Include="doc\Фрактальное дерево.pln" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="doc\GRABC.dll" />
     <Content Include="doc\libs.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
