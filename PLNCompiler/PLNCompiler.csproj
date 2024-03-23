@@ -245,8 +245,12 @@
     <None Include="doc\Фрактальное дерево.pln" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="doc\GRABC.dll" />
-    <Content Include="doc\libs.xml" />
+    <Content Include="doc\GRABC.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="doc\libs.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

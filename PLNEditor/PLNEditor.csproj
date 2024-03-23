@@ -56,10 +56,6 @@
     <Reference Include="FastColoredTextBox">
       <HintPath>dll\FastColoredTextBox.dll</HintPath>
     </Reference>
-    <Reference Include="PLNCompiler, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Compiler\PLNCompiler.exe</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -193,10 +189,7 @@
     <None Include="res\close_small.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Compiler\PLNCompiler.exe" />
     <Content Include="main_icon.ico" />
-    <Content Include="doc\FastColoredTextBox.dll" />
-    <Content Include="doc\FastColoredTextBox.xml" />
     <Content Include="doc\Highlighter.xml" />
     <None Include="res\main_icon.ico" />
   </ItemGroup>
@@ -206,6 +199,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PLNCompiler\PLNCompiler.csproj">
+      <Project>{4723de78-ade9-46e5-8a48-c2e4ae771906}</Project>
+      <Name>PLNCompiler</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="dll\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
