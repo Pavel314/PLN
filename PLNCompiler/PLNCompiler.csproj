@@ -243,6 +243,8 @@
     <None Include="doc\Сумма%28Битовые операции%29.pln" />
     <None Include="doc\Фрактальное дерево.pln" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="doc\libs.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
