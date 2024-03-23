@@ -243,10 +243,15 @@
     <None Include="doc\Множество Мандельброта.pln" />
     <None Include="doc\Сумма%28Битовые операции%29.pln" />
     <None Include="doc\Фрактальное дерево.pln" />
+    <None Include="Syntax\Analysis\generator.bat" />
+    <None Include="Syntax\Analysis\PLNParser.y" />
+    <None Include="Syntax\Analysis\PLNScanner.lex" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="doc\GRABC.dll" />
     <Content Include="doc\libs.xml" />
+    <Content Include="Syntax\Analysis\Gplex.exe" />
+    <Content Include="Syntax\Analysis\Gppg.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
