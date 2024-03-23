@@ -16,18 +16,88 @@ using PLNCompiler.Compile;
 
 namespace PLNCompiler
 {
-   public class Program
+
+
+    //public class TreeConverter : IStatementVisitor, IExpressionVisitor
+    //{
+
+    //    public TreeConverter(PLNTypeGenerator typeGenerator)
+    //    {
+    //        TypeGenerator = typeGenerator;
+    //    }
+
+
+    //    public void VisitBlockNode(BlockNode node)
+    //    {
+    //        foreach (var statement in node.Statements)
+    //            statement.Visit(this);
+    //    }
+
+    //    public void VisitConstantNode(ConstNode node)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+
+    //    public void VisitIdentiferNode(IdentiferNode node)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+
+
+
+    //    public void VisitParsableConstantNode(ParsableConstNode node)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+
+    //    public void VisitMethodNode(MethodNode node)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+
+    //    public void VisitVarAssignNode(VarAssignNode node)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+
+    //    public void VisitVarDefineNode(VarDefineNode node)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+
+    //    public void VisitBinaryNode(BinaryNode node)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+
+    //    public void VisitUnaryNode(UnaryNode node)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+
+    //    public void VisitMemberAccessNode(MemberAccessNode node)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+
+    //    public PLNTypeGenerator TypeGenerator { get; private set; }
+
+    //}
+
+
+
+    public class Program
     {
         private static bool Scanner_ScanError(object sender, ScanErrorEventArgs e)
         {
             //  var a = new tst<int>();
-           // mem();
+            // mem();
             Console.WriteLine(e.Text.ToString());
             return false;
         }
 
 
-     
+
 
         static void Main(string[] args)
         {
@@ -145,7 +215,7 @@ namespace PLNCompiler
         public static void CompileWithConsoleIO(string fileName)
         {
             var compiler = new Compile.PLNCompiler();
-            OutputResult(compiler.CompileFromFile(new ComilerSettings(false,Path.ChangeExtension(fileName,"exe")), fileName));
+            OutputResult(compiler.CompileFromFile(new ComilerSettings(false, Path.ChangeExtension(fileName, "exe")), fileName));
         }
 
         //public static void CompileWithConsoleIOMemory(string soureCode,string programName="PLNProgram")
@@ -187,7 +257,7 @@ namespace PLNCompiler
             }
         }
 
-            private static void AddError(string error,Location location)
+        private static void AddError(string error, Location location)
         {
             //var posLeft = Console.CursorLeft;
             //var posTop = Console.CursorTop;
