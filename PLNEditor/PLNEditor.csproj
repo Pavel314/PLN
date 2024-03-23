@@ -189,6 +189,8 @@
     <None Include="res\close_small.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="dll\FastColoredTextBox.dll" />
+    <Content Include="dll\FastColoredTextBox.xml" />
     <Content Include="main_icon.ico" />
     <Content Include="doc\Highlighter.xml" />
     <None Include="res\main_icon.ico" />
@@ -206,8 +208,6 @@
       <Name>PLNCompiler</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="dll\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
