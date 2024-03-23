@@ -1,0 +1,38 @@
+﻿#[ОКОННОЕ_ПРИЛОЖЕНИЕ]
+Импорт "GRABC.dll"
+Импорт "System.Drawing.dll"
+
+Подключить GraphABC,System.Drawing;
+{
+ GraphABC.InitGraphABC();
+ GraphABC.MaximizeWindow();
+ +Целое n=255;
+ +Целое max=10;
+
+ +Дробное scale=0.003;
+
+ цикл (+Дробное ix=0.0;ix<GraphABC.WindowWidth();ix=ix+1)
+ {
+  цикл (+Дробное iy=0.0;iy<GraphABC.WindowHeight();iy=iy+1)
+    {
+    +Дробное x=0;
+    +Дробное y=0;
+    +Дробное cx=scale*ix-1.8;
+    +Дробное cy=scale*(iy-GraphABC.WindowHeight()/2);
+    +Целое i=1;
+    цикл (i=1;i<n;i=i+1)
+        {
+        +Дробное x1=x*x-y*y+cx;
+        +Дробное y1=2*x*y+cy;
+        если ((x1>max) или (y1>max)) прервать;
+        x=x1;
+        y=y1;
+        i=i+1;
+        }
+     если (i>=n) 
+     GraphABC.SetPixel(Математика.Округлить(ix),Математика.Округлить(iy),Color.FromArgb(0,255,0));
+     иначе 
+     GraphABC.SetPixel(Математика.Округлить(ix),Математика.Округлить(iy),Color.FromArgb(0,i,0));
+        }
+   }
+}

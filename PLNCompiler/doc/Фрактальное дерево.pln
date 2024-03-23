@@ -1,0 +1,64 @@
+﻿#[ОКОННОЕ_ПРИЛОЖЕНИЕ]
+Импорт "GRABC.dll"
+Импорт "System.Drawing.dll"
+Подключить GraphABC,System.Drawing, System,System.Collections.Generic;
+{
+    GraphABC.InitGraphABC();
+    GraphABC.SetWindowSize(640,480);
+    GraphABC.CenterWindow();
+    GraphABC.ClearWindow(Color.get_Black());
+    GraphABC.SetPenColor(Color.FromArgb(100,Color.get_Pink()));
+ 
+    +Целое rotation = 10;
+    +Целое minAngle = -180;
+    +Целое maxAngle = 0;
+    +Целое randomAngle = 45;
+ 
+    +Стек<Дробное> масс = новый Стек<Дробное>();
+    масс.Добавить(GraphABC.WindowWidth()/2);
+    масс.Добавить(GraphABC.WindowHeight() / 2 + 50);
+    масс.Добавить(50);
+    масс.Добавить(-90);
+    масс.Добавить(5);
+
+    пока (масс.Длина()>0)
+    {
+        +Целое n=Конвертер.КЦелому(масс.Удалить());
+        +Дробное angle=масс.Удалить();
+        +Дробное r=масс.Удалить();
+        +Дробное y=масс.Удалить();
+        +Дробное x=масс.Удалить();
+    
+        +Дробное ang=angle*Математика.ПИ/180.0;
+        +Дробное x1=x+r*Математика.Косинус(ang);
+        +Дробное y1=y+r*Математика.Синус(ang);
+
+        GraphABC.SetPenWidth(n);
+        GraphABC.Line(Математика.Округлить(x),Математика.Округлить(y),Математика.Округлить(x1),Математика.Округлить(y1));
+
+
+        если (r>1) 
+        {
+            r=r*0.8;
+            если (n>0) 
+                n=n-1;
+            если (angle+Rotation<MaxAngle) 
+            {
+                масс.Добавить(x1);
+                масс.Добавить(y1);
+                масс.Добавить(r);
+                масс.Добавить(angle+rotation+Математика.Случайное(randomAngle));
+                масс.Добавить(n);
+            }
+
+            если (angle-Rotation>MinAngle) 
+            {
+                масс.Добавить(x1);
+                масс.Добавить(y1);
+                масс.Добавить(r);
+                масс.Добавить(angle-rotation-Математика.Случайное(randomAngle));
+                масс.Добавить(n);
+            }
+        }
+    }
+}

@@ -105,8 +105,7 @@ namespace PLNCompiler.Compile.PLNReflection.AssemblyLoader
                 int i = 0;
                 foreach (var item in dict)
                 {
-                    assemblyNames[i] = new Pair(item.Key, item.Value.ToString());
-                    i++;
+                    assemblyNames[i++] = new Pair(item.Key, item.Value.ToString());
                 }
                 serializer.Serialize(stream, assemblyNames);
             }
