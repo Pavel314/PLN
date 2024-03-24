@@ -1,0 +1,10 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="CopyCompiler" AfterTargets="Build"> 
+  
+  <ItemGroup>
+	  <CompilerPath Include="..\PLNCompiler\bin\release\**\*.*" />
+  </ItemGroup>	  
+  <Copy SourceFiles="@(CompilerPath)" DestinationFolder="$(TargetDir)\%(RecursiveDir)" SkipUnchangedFiles="true" />
+
+</Target>
+</Project>

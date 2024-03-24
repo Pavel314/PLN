@@ -1,0 +1,10 @@
+MSBuild
+https://stackoverflow.com/questions/59456096/project-reference-with-referenceoutputassembly-tag-with-false-value-does-not-cop
+https://stackoverflow.com/questions/18743907/visual-studio-how-to-copy-to-output-directory-without-copying-the-folder-stru/35065306#35065306
+https://stackoverflow.com/questions/1132243/msbuild-doesnt-copy-references-dll-files-if-using-project-dependencies-in-sol
+https://stackoverflow.com/questions/52010290/include-additional-files-in-build-using-msbuild-projectreference
+https://stackoverflow.com/questions/48666321/how-to-have-a-project-reference-without-referencing-the-actual-binary
+https://stackoverflow.com/questions/7268090/how-does-resolveprojectreferences-work
+https://github.com/MicrosoftDocs/visualstudio-docs/blob/main/docs/msbuild/how-to-extend-the-visual-studio-build-process.md
+https://stackoverflow.com/questions/1292351/including-content-files-in-csproj-that-are-outside-the-project-cone
+https://stackoverflow.com/questions/65364335/msbuild-copy-one-file-or-another-depending-on-the-build-configuration/65387239?noredirect=1#comment115938624_65387239

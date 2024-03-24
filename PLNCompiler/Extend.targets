@@ -1,0 +1,20 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="Extend" AfterTargets="Build"> 
+
+
+  
+  <ItemGroup>
+	  <RootFiles Include="doc\libs.xml" />
+	  <RootFiles Include="doc\PLNСправка.chm" />
+  </ItemGroup>	  
+  <Copy SourceFiles="@(RootFiles)" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true" />
+
+
+  <ItemGroup>
+	  <SamplesFolder Include="doc\Примеры\**\*.*" />
+	  <SamplesOutFolder Include="$(TargetDir)\Примеры\%(RecursiveDir)" />
+  </ItemGroup>
+  <Copy SourceFiles="@(SamplesFolder)" DestinationFolder="@(SamplesOutFolder)" SkipUnchangedFiles="true" />
+
+</Target>
+</Project>

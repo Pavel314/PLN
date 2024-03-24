@@ -190,9 +190,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dll\FastColoredTextBox.dll" />
-    <Content Include="dll\FastColoredTextBox.xml" />
+    <None Include="dll\FastColoredTextBox.xml" />
     <Content Include="main_icon.ico" />
-    <Content Include="doc\Highlighter.xml" />
     <None Include="res\main_icon.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -207,7 +206,10 @@
       <Project>{4723de78-ade9-46e5-8a48-c2e4ae771906}</Project>
       <Name>PLNCompiler</Name>
     </ProjectReference>
+	
+<None Include="CopyCompiler.targets" />	
+	
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="CopyCompiler.targets" />
 </Project>
